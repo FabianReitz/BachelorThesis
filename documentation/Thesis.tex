@@ -1,22 +1,26 @@
-% ==========================================================
+% =================================================
 %
-% Dies ist die LaTeX-Datei für das dritte Praxisprojekt von:
+% This is the LaTeX file for the Bachelor Thesis of
 %
 %                		Fabian Reitz
 %
-%				       mit dem Titel:
+%						
 %
-%  					 "Praxisprojekt 3"
+%	   "Chancen und Risiken einer Migration von
+%		Webanwendungen zu nativen Anwendungen"
 %					
-%			 in Kooperation mit stadt.werk GmbH
+%			 		  in cooperation with 
+%						stadt.werk GmbH
+%							  and
+%			Duale Hochschule Schleswig-Holstein
 %
-% ==========================================================
+% =================================================
 
-% ----------------------------
+% ------------------------------
 %
-% Konfiguration des Dokumentes
+% Configuration of the document:
 %
-% ----------------------------
+% ------------------------------
 
 % Dokumenten-Klasse und Format auf A4 festlegen:
 \documentclass[a4paper]{scrartcl}
@@ -93,6 +97,7 @@
 
 \setcounter{secnumdepth}{4}
 
+
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
@@ -108,10 +113,55 @@
 % ------------------------
 
 % Biblatex zum Erstellen von Quellenangaben:
-\usepackage{biblatex}
+\usepackage[
+	backend=biber,
+	style=ext-authoryear,
+	firstinits=true,
+	dashed=false,
+	maxcitenames=2,
+	maxbibnames=99
+]{biblatex}
 
+% Bibliography importieren:
 \addbibresource{bibliography.bib}
 
+\DeclareNameAlias{sortname}{last-first}
+\DeclareFieldFormat{url}{[online]\space\url{#1}}
+\DeclareFieldFormat{urldate}{[abgerufen am {#1}]}
+
+\DeclareDelimFormat[bib]{nametitledelim}{\addcolon\space} 
+
+% Den Punkt nach dem Titel durch ein Komma ersetzen:
+\usepackage{xpatch}
+\xpatchbibdriver{online}
+  {\usebibmacro{title}%
+   \newunit}
+  {\usebibmacro{title}%
+   \printunit{\addcomma\space}}
+  {}
+  {}
+% Internet source: Place comma after titleaddon
+\renewcommand*{\titleaddonpunct}{\addcomma\space}
+
+% Book source: Place comma after Title
+\DeclareFieldFormat[book]{title}{\textit{#1}\addcomma}
+
+% Article source:
+\DeclareFieldFormat[article]{title}{#1\addcomma}
+\DeclareFieldFormat[article]{journaltitle}{\textit{#1}\addcomma}
+\DeclareFieldFormat[article]{volume}{Bd. #1\addcomma\space}
+\DeclareFieldFormat[article]{number}{\space Nr. {#1}}
+\DeclareFieldFormat[article]{pages}{S. #1 \addcomma}
+
+% Deutsches "u.a." durch "et al." ersetzen:
+\DefineBibliographyStrings{ngerman}{
+   andothers = {{et\,al\adddot}},
+}
+
+% In-Text citing
+\renewcommand*{\postnotedelim}{\addcolon\space}
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
 
 % --------------------------------
 %
@@ -122,9 +172,9 @@
 % Schriftart auf "Times New Roman" festlegen:
 \setmainfont[
 	Path = ./_fonts/,
-    BoldFont = Times-New-Roman-Bold.ttf,
-    ItalicFont = Times-New-Roman-Italic.ttf
-]{Times-New-Roman.ttf}
+    BoldFont = Arial-Bold.ttf,
+    ItalicFont = Arial-Italic.ttf
+]{Arial.ttf}
 
 % Header bearbeiten:
 \pagestyle{fancy}
@@ -149,29 +199,52 @@
 % Deckblatt definieren:
 % ---------------------
 
+\begin{minipage}{0.2\textwidth}
+	\begin{figure}[H]
+		\includegraphics[scale=0.25]{_assets/logo_DHSH}
+	\end{figure}
+\end{minipage} \hfill
+\begin{minipage}{0.68\textwidth}
+	\begin{itemize}
+		\item[] \huge BACHELOR-THESIS
+		\item[] \large Fachrichtung Wirtschaftsinformatik
+	\end{itemize}
+\end{minipage} \\
 
 
-\titlehead{\centering\includegraphics[scale=0.3]{_assets/logo_DHSH}}
-\subject{Praxisprojekt 3 - Informatik \\}
-\title{Digitalisierung eines analogen Prozesses unter Anwendung moderner UI- und UX-Designmethoden}
-\subtitle{- am Beispiel einer webbasierten Anwendung zur Erstellung von Rechnungen}
-\author{\date{}}
-\vspace{2cm}
-\publishers{
-	\begin{tabbing}
-		Betreuender Dozent: tab \= Mitte \= Rechts \= \kill
-		
-		Abgegeben von: 	\> Fabian Reitz \\
-		E-Mail: 		\> fabian.reitz@stud.dhsh.de \\
-		Studiengruppe:	\> WINF 119 B \\ \\
-		Gutachter:		\> Herr Prof. Dr. Alexander Paar \\ \\
-		Abgabetermin:	\> 13.01.2022 \\
-		Versuch:		\> Erstversuch \\
-	\end{tabbing}
-}
-\maketitle
+\begin{center}
+	\LARGE Chancen und Risiken einer Migration von Webanwendungen zu nativen Systemen 
+\end{center}
+
+\begin{tabbing}
+	Betreuender Dozent: tabbing \= Mitte \= Rechts \= \kill
+	
+	\textbf{Studiengruppe:}  			\> 119 WINF \\
+	\textbf{Eingereicht von:} 			\> Fabian Reitz \\
+										\> Hasseldieksdammer Weg 13 \\
+										\> 24114 Kiel \\
+										\> +49 175 6392445  \\
+										\> fabian.reitz@stud.dhsh.de \\
+	\textbf{Erstgutachter DHSH:}			\> Prof. Dr. Alexander Paar \\
+										\> Hans-Detlev-Prien-Straße 10 \\
+										\> 24106 Kiel \\ 
+										\> +49 431 3016255 \\
+										\> alexander.paar@dhsh.de \\							
+	\textbf{Gutachter des Betriebes:	}	\> Marc Köster \\
+										\> Mittelstraße 7 | Hinterhaus \\
+										\> 24103 Kiel \\
+										\> +49 431 53015400 \\
+										\> koester@stadtwerk.org \\
+	\textbf{Zweitgutachter DHSH:}		\> Prof. Dr. Michael Sachtler \\
+										\> Hans-Detlev-Prien-Straße 10 \\
+										\> 24106 Kiel \\ 
+										\> +49 431 3016170 \\
+	\textbf{Abgabetermin:}				\> 16.05.2022 \\
+	
+\end{tabbing} 
 
 \thispagestyle{empty}
+
 
 % -------------------
 % Inhaltsverzeichnis:
@@ -244,13 +317,107 @@
 \pagenumbering{arabic}
 
 % Neue Section: Einleitung
-\section{Einleitung}
+\section{Einführung}
+
+\subsection{Einleitung}
+Während es unmöglich ist, den Ursprung des Internets auf einen exakten Zeitpunkt festzulegen, lässt sich jedoch mit Gewissheit sagen, dass die Entwicklung des Internets einen bedeutsamen Wendepunkt in der Geschichte der Menschheit darstellt \autocite[26]{Kleinrock}. \textcite{Floridi} sieht in dem Internet als „Infosphere“ \autocite[9]{Floridi} die vierte Revolution in einer Reihe von weltverändernden Wandlungen. Zu diesen Wandlungen gehören die Kopernikus-Revolution, die Darwin'sche Revolution und die Freud'sche Revolution. Diese Wenden veränderten das grundlegende Verständnis der Menschen sowohl über ihre Umwelt als auch über sich selbst \autocite[8f.]{Floridi}. \\
+
+Das Internet befindet sich in einem stetigen Wandel. Der Beginn des modernen Internets wird im Kontext dieser Arbeit auf den Zeitpunkt datiert, als Sir Tim Berners-Lee die ersten Webkomponenten im Jahr 1990 entwickelte. Berners-Lee arbeitete zu diesem Zeitpunkt bei \textit{CERN} in der Schweiz. Er entwickelte ein System zur Verwaltung von unternehmensinternen Information mittels des ersten Webbrowsers. Dieser war in der Lage, HTML-Dokumente von einem durch Berners-Lee entwickelten Webserver abzurufen und darzustellen \autocite{Berners-Lee}. \\
+In der Geschichte des Internets finden sich einige Trends und Entwicklungen, welche als Meilensteine gesehen werden. Diese teilen das Internet historisch in Web 1.0, Web 2.0, Web 3.0 und Web 4.0 auf \autocite[133]{Kollmann}. \\
+Den Beginn der Geschichte des Internets bildet das Web 1.0. Dieses basiert überwiegend auf den Ideen von Berners-Lee und wird durch die Etablierung des Internets in der Gesellschaft erweitert. Somit besteht das Web 1.0 lediglich aus statischen HTML-Seiten, welche den Nutzenden in einem Webbrowser angezeigt wird. Der dominierende Webbrowser der Neunzigerjahre ist der \textit{Netscape Navigator} des Unternehmens \textit{Netscape Communications} \autocite{Oreilly}. Besonders für das Web 1.0 ist die binäre Rollenverteilung der Nutzenden, wie Kollmann beschreibt:
+\begin{quote}
+	„Zum einen gab es aktive Ersteller von Web-Inhalten, die, teils kommerziell, teils privat, Informationen einstellten und publizierten. Zum anderen gab es passive Konsumenten, die sich lediglich die bereitgestellten Inhalte ansehen konnten und auch gar keine andere Option hatten, als die Informationen zu empfangen und zu konsumieren“ \autocite[134]{Kollmann}.
+\end{quote}
+Dieser Passivität der Konsumierenden sind sich die Unternehmen der Zeit des Web 1.0 ebenfalls bewusst. So zeigen sich im Web 1.0 die ersten Ansätze von ausgefeilten E-Commerce-Strategien, welche darauf abzielen, Produkte und Dienstleistungen auf diesem neuen Markt zu vertreiben \autocite[1204]{Kollmann_Lomberg}. \\
+Das auf das Web 1.0 folgende Web 2.0 entstand um 2005 und markierte somit die Zeit, als die dot-com-Blase geplatzt ist. Diese stetige Wende ist aus einer Konferenz zwischen den Unternehmen \textit{O'Reilly} und \textit{MediaLive International}. Die Idee einer nächsten Evolutionsstufe des Internets kam den Unternehmen bei einem Brainstorming. Dieses Brainstorming brachte letztendlich die \textit{Web 2.0 Conference} hervor. Hierbei muss Erwähnung finden, dass Unternehmen das Buzzword \textit{Web 2.0} als Marketing-Element missbrauchen. Das erschwert die Einordnung des Web 2.0 umso mehr, da viele dieser Unternehmen nichts mit den Definitionsansätzen der \textit{Web 2.0 Conference} gemein haben. Die \textit{Web 2.0 Conference} versucht sich an einer Definition über zentrale Aspekte dieser neuen Iterationsstufe des Internets. Dazu gehören die Ansätze \textit{Web as a Platform} und \textit{User-Generated Content}. Die Rolle der passiven Konsumierenden des Web 1.0 veränderte sich demnach zu den aktiven Teilnehmenden des Web 2.0. Erste soziale Medien ermöglichen eine Interaktion mit anderen Nutzenden, Bewertungen auf E-Commerce-Seiten verschaffen Käuferinnen und Käufern eine Stimme und digitale Enzyklopädien laden zum Teilen des eigenen Wissens ein. Zentrale Plattformen des Web 2.0 sind somit \textit{Facebook}, \textit{eBay} und \textit{Wikipedia}. Anbieter einer Rich User Experience, vor allem \textit{Google}, lösen die Riesen des Web 1.0, beispielsweise \textit{Netscape}, ab \autocite{Oreilly}. Dabei spielen die sieben Grundprinzipien des Web 2.0 eine zentrale Rolle: Globale Vernetzung, Kollektive Intelligenz, Datengetriebene Plattformen, Perpetual Beta, Leichtgewichtige Architekturen, Geräteunabhängigkeit und Reichhaltige Oberfläche \autocite[Kollmann und Häsel 2007, zitiert nach][137]{Kollmann}. \\
+
+Die Fortführung, der Ausbau und die allzeitliche Zugänglichkeit des Web 2.0 machen das Internet zu der modernen Infosphere, die Floridi 2010 beschrieb. Durch die Möglichkeiten, die Entwicklerinnen und Entwicklern gegeben werden, ist es mit wenig Aufwand möglich, ganze Anwendungen über einen Webbrowser zugänglich zu machen. Insbesondere Anwendungen, welche ursprünglich für native Systeme entwickelt wurden, finden ihren Weg in die Cloud. Welche Vor- und Nachteile dieser Trend hat und ob eine Remigration zu nativen Systemen unter Verwendung moderner Technologien Sinn ergibt, wird in dieser Arbeit näher beleuchtet. 
+
+\subsection{Problemstellung}
+Die Entwicklung von Anwendungen für das Web wird eine immer beliebtere Alternative zu nativen Anwendungen, wie beispielsweise Desktop-Anwendungen. Deutlich erkennbar wird der Trend bei einem Vergleich der \textit{stackoverflow Developer Surveys} aus den Jahren 2015 und 2021. Diese 
+
+
+\subsection{Zielsetzung}
+
+\subsection{Aufbau und Vorgehensweise}
+
+\section{Literature Review}
+
+\subsection{Webanwendungen}
+
+\subsubsection{Warum Webanwendungen?}
+
+\subsubsection{Browser}
+
+\paragraph{IE11}
+
+\paragraph{Firefox}
+
+\paragraph{Chrome}
+
+\paragraph{Safari}
+
+\subsection{Native Anwendungen}
+
+\subsubsection{Warum Native Anwendungen?}
+
+\subsubsection{Desktopanwendungen}
+
+\paragraph{Windows}
+
+\paragraph{MacOS}
+
+\paragraph{GNU/Linux}
+
+\subsubsection{Mobile Anwendungen}
+
+\paragraph{Android}
+
+\paragraph{iOS und iPadOS}
+
+\subsection{Cross-Plattform}
+
+\subsubsection{Warum Cross-Plattform?}
+
+\subsubsection{Frameworks und Libraries}
+
+\paragraph{Flutter}
+
+\paragraph{React Native}
+
+\paragraph{Native Script}
+
+\paragraph{Ionic}
+
+\paragraph{Xamarin}
+
+\section{Praxis}
+
+\subsection{Wass soll erreicht werden?}
+
+\subsection{Vergleich von Cross-Plattform Lösungen}
+
+\subsubsection{Flutter}
+
+\subsubsection{React Native}
+
+\subsubsection{Native Script}
+
+\subsubsection{Ionic}
+
+\subsubsection{Xamarin}
+
+\section{Diskussion}
+
+\subsection{Limitation}
+
+\subsection{Ausblick}
+
+\section{Fazit}
 
 % ---------------------
 % Literaturverzeichnis:
 % ---------------------
-
-
 
 % Neue Seite beginnen:
 \newpage
@@ -269,6 +436,10 @@
 
 % Einfacher Zeilenabstand:
 \singlespacing
+
+% Literaturverzeichnis rendern
+
+\printbibliography[heading=none]
 
 % --------------------------
 % Eidesstattliche Erklärung:
@@ -300,8 +471,8 @@ Kiel, den 13.01.2022 \\ \\
 \newpage
 
 \appendix
-% Neue Section:
-\section{Prozess: Erstellung einer Rechnung}
+\section{hi}
+
 
 
 \end{document}
