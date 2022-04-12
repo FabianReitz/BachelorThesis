@@ -1,2 +1,5 @@
 # Disable temporary TexPad-folder
 .texpadtmp
+
+# Disable Sources as they tend to be quite large
+sources
