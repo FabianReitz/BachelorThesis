@@ -163,6 +163,12 @@
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
 
+% Sources without date
+\newcommand{\mkbibnodate}{o\adddot D\adddot}
+\AtEveryCitekey{\iffieldundef{date}{\restorefield{labelyear}{\mkbibnodate}}{}}
+\AtEveryBibitem{\iffieldundef{date}{\restorefield{labelyear}{\mkbibnodate}}{}}
+
+
 % --------------------------------
 %
 % Einstellungen für die Schriftart
@@ -334,12 +340,26 @@ Das auf das Web 1.0 folgende Web 2.0 entstand um 2005 und markierte somit die Ze
 Die Fortführung, der Ausbau und die allzeitliche Zugänglichkeit des Web 2.0 machen das Internet zu der modernen Infosphere, die Floridi 2010 beschrieb. Durch die Möglichkeiten, die Entwicklerinnen und Entwicklern gegeben werden, ist es mit wenig Aufwand möglich, ganze Anwendungen über einen Webbrowser zugänglich zu machen. Insbesondere Anwendungen, welche ursprünglich für native Systeme entwickelt wurden, finden ihren Weg in die Cloud. Welche Vor- und Nachteile dieser Trend hat und ob eine Remigration zu nativen Systemen unter Verwendung moderner Technologien Sinn ergibt, wird in dieser Arbeit näher beleuchtet. 
 
 \subsection{Problemstellung}
-Die Entwicklung von Anwendungen für das Web wird eine immer beliebtere Alternative zu nativen Anwendungen, wie beispielsweise Desktop-Anwendungen. Deutlich erkennbar wird der Trend bei einem Vergleich der \textit{stackoverflow Developer Surveys} aus den Jahren 2015 und 2021. Diese 
+Die Entwicklung von Anwendungen für das Web wird eine immer beliebtere Alternative zu nativen Anwendungen, wie beispielsweise installierbare Desktop-Anwendungen. Deutlich erkennbar wird der Trend bei einem Vergleich der \textit{stackoverflow Developer Surveys} aus den Jahren 2015 bis 2021. Betrachtet man nun die Antworten \textit{Full-Stack Developer} und trägt diese als Funktion der Jahre auf, lässt sich folgender Graph erkennen: 
 
+\begin{figure}[H]
+	\centering
+		\caption{Anteil der Full-Stack Entwicklerinnen und Entwickler von 2013 bis 2021}
+	\includegraphics[scale=0.28]{_assets/stackoverflow_fullstack_developers.png} \\
+	Der Graph zeigt den Anteil von Full-Stack Entwicklerinnen und Entwicklern an der Gesamtmenge (siehe Anhang 1.1) der Antworten der jährlichen \textit{stackoverflow Developer Survey} \autocite{stackoverflow_2015,stackoverflow_2016,stackoverflow_2017,stackoverflow_2018,stackoverflow_2019,stackoverflow_2020,stackoverflow_2021}.  
+\end{figure}
+
+Der Anteil an Full-Stack Entwicklerinnen und Entwicklern nahm im Jahr 2017 stark zu und erreichte einen relativen Wert von 46,3 \%. Der Anteil stieg weiter und erreichte im Jahr 2020 den Höchststand mit 54,9 \%. Im Folgejahr viel der Wert gering. Mit einer zeitweise absoluten Mehrheit von Web-Developern unter den Teilnehmenden der Umfrage lässt sich eine Beliebtheit und Relevanz dieser Technologie schlussfolgern. Die steigende Anzahl zeigt auch, dass Web-Anwendungen über die Jahre an Relevanz gewonnen haben. Hier sei jedoch zu erwähnen, dass Full-Stack Developer nur einen Anteil der Teilnehmenden abbildet, die mit Webtechnologien arbeiten. Berufsbezeichnungen wie Front-End Developer oder Back-End Developer gehören ebenfalls zu den Webentwicklerinnen und -entwicklern, finden jedoch zur Minimierung der Komplexität hier keine Beachtung. \\ 
+
+Webanwendungen bieten zahlreiche Vorteile gegenüber konventionellen nativen Anwendungen, sowohl aus Sicht der Developer als auch aus User-Sicht. Hier sei beispielsweise die universelle Erreichbarkeit von jedem Endgerät zu erwähnen. Jedoch müssen ebenfalls die Nachteile bedacht werden, sollte sich für die Entwicklung von Software als Webanwendung entschieden werden. Hier kann als Beispiel die Vielzahl von Webbrowsern mit uneinheitlichen Standards erwähnt werden. Entwicklerinnen und Entwickler müssen sich über die Implikationen der Wahl zwischen nativen Anwendungen und Webanwendungen im Klaren sein, um den Entwicklungsaufwand gering und die Nutzungserfahrung positiv zu gestalten. Welche Aspekte Front-End Developer bei dieser Wahl beachten müssen und welche Lösungen moderne Technologien für dieses Problem bieten, wird in dieser Arbeit aufgezeigt. Zentrale Betrachtung findet dabei der Gedanke einer Remigration von Webanwendungen zu nativen Anwendungen vor dem Hintergrund der großen Zahl an Webentwicklerinnen und -entwicklern.
 
 \subsection{Zielsetzung}
+Ziel dieser Arbeit ist die Dokumentation der Möglichkeiten, die sich Entwickelnden von Webanwendungen bieten, sollten sie native Anwendungen entwickeln wollen. Abschließend soll der Versuch einer Vorhersage als begründete Vermutung getätigt werden, ob sich native Anwendungen im Vergleich zu Webanwendungen zukünftig durchsetzen werden. 
 
 \subsection{Aufbau und Vorgehensweise}
+Um die Möglichkeiten der Entwicklung von Anwendungen bestmöglich zu vergleichen, werden zunächst die Browser mit den größten Marktanteilen verglichen. Die Betrachtung findet dabei sowohl aus Sicht der Nutzerinnen und Nutzer als auch aus Developer-Sicht statt. Dabei wird ein besonderes Augenmerk auf die Unterschiede der Technologien gelegt. Darauf folgend werden die Betriebssysteme und ihre Eigenheiten verglichen, für welche native Software entwickelt werden soll. Auch hier werden die Marktführer der Betriebssysteme für Desktop und Smartphone beziehungsweise Tablet verglichen. Als letzter Bestandteil des Literature Reviews werden moderne Cross-Plattform-Technologien verglichen. Hierbei werden die Stärken und Schwächen der Lösungen verglichen, wie auch die Programmiersprache vor dem Hintergrund eines Web-Developers. \\
+
+Im Fokus des Praxisteils dieser Arbeit steht der Vergleich der Technologien aus praktischer Sicht. Hierzu werden mithilfe der betrachteten Technologien Anwendungen erstellt, welche vorab definierte Anforderungen erfüllen. Die Ausführungen werden daraufhin anhand der Entwicklungserfahrung verglichen. Der praktische Teil erfolgt dabei vor dem Hintergrund eines Web-Developers. 
 
 \section{Literature Review}
 
@@ -471,8 +491,46 @@ Kiel, den 13.01.2022 \\ \\
 \newpage
 
 \appendix
-\section{hi}
 
+\section*{Anhang}
+\addcontentsline{toc}{section}{Anhang}
+
+\subsection*{Anhang 1: Tabellen}
+\addcontentsline{toc}{subsection}{Anhang 1: Tabellen}
+
+\subsubsection*{Anhang 1.1: stackoverflow Developer Surveys 2015 bis 2021}
+\addcontentsline{toc}{subsubsection}{Anhang 1.1: stackoverflow Developer Surveys 2015 bis 2021}
+
+\begin{table}[H]
+	\centering
+	\caption{Anzahl der Antworten der stackoverflow Developer Surveys 2015 bis 2021}
+	\begin{center}
+		\begin{tabular}{| l | c | c |}
+			\hline
+			Jahr & Absolute Anzahl aller Antworten & Relativer Anteil Full-Stack Developer \\
+			\hline \hline
+			2013 & 8.218 Antworten & 29 \% \\
+			\hline
+			2014 & 7.346 Antworten & 26,8 \% \\
+			\hline
+			2015 & 22.148 Antworten & 32,4 \% \\
+			\hline 
+			2016 & 49.525 Antworten & 28 \% \\
+			\hline 
+			2017 & 36.125 Antworten & 46,3 \% \\
+			\hline 
+			2018 & 92.098 Antworten & 48,2 \% \\
+			\hline
+			2019 & 81.335 Antworten & 51,9 \% \\
+			\hline
+			2020 & 49.370 Antworten & 54,9 \% \\
+			\hline
+			2021 & 66.484 Antworten & 49,5 \% \\
+			\hline
+		\end{tabular}
+	\end{center}
+	Die Tabelle zeigt die Anzahl aller Antworten pro Jahr der \textit{stackoverflow Developer Survey}, sowie den relativen Anteil von Full-Stack Developern an diesen Antworten \autocite{stackoverflow_2015,stackoverflow_2016,stackoverflow_2017,stackoverflow_2018,stackoverflow_2019,stackoverflow_2020,stackoverflow_2021}.
+\end{table}
 
 
 \end{document}
