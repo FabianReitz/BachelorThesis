@@ -18,4 +18,8 @@ export class TodosService {
     async findAll(): Promise<Todo[]> {
         return this.todoModel.find().exec();
     }
+
+    async reset(): Promise<any> {
+        return this.todoModel.deleteMany().exec();
+    }
 }

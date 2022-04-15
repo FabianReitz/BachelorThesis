@@ -9,11 +9,29 @@ export class TodosController {
 
     @Post()
     async create(@Body() createTodoDto: CreateTodoDto) {
-        await this.todoService.create(createTodoDto);
+        try {
+            return await this.todoService.create(createTodoDto);
+        } catch (error) {
+            return error;
+        }
     }
 
     @Get()
     async findAll(): Promise<Todo[]> {
-        return this.todoService.findAll();
+        try {
+            return this.todoService.findAll();
+        } catch (error) {
+            return error;
+        }
+    }
+
+    // This route is purely for development purposes.
+    @Get('/reset')
+    async reset(): Promise<void> {
+        try {
+            return this.todoService.reset();
+        } catch (error) {
+            return error;
+        }
     }
 }
