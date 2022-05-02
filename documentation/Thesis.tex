@@ -50,6 +50,10 @@
 % Zeilenabstand verwenden:
 \usepackage{setspace}
 
+% Bessere Tabellen
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
 % Abschnitte im Dokument verlinken: 
 \usepackage{hyperref}
 \hypersetup{
@@ -165,8 +169,8 @@
 
 % Sources without date
 \newcommand{\mkbibnodate}{o\adddot D\adddot}
-\AtEveryCitekey{\iffieldundef{date}{\restorefield{labelyear}{\mkbibnodate}}{}}
-\AtEveryBibitem{\iffieldundef{date}{\restorefield{labelyear}{\mkbibnodate}}{}}
+\AtEveryCitekey{\iffieldundef{year}{\restorefield{labelyear}{\mkbibnodate}}{}}
+\AtEveryBibitem{\iffieldundef{year}{\restorefield{labelyear}{\mkbibnodate}}{}}
 
 
 % --------------------------------
@@ -282,15 +286,15 @@
 % Abkürzungsverzeichnis beginnen:
 \begin{tabbing}
 	----------------------- \= Erklärung \kill
-	e.V. \> eingetragener Verein \\
-	GmbH \> Gemeinschaft mit beschränkter Haftung \\
-	GUI \> Graphical User Interface \\
-	\> deutsch: Grafische Nutzungsoberfläche \\
-	PDF \> Portable Document Format, ein Dateistandard zur Handhabung von \\ \> Dokumenten \\
-	UI (-Design) \> User Interface (Design)  \\
-	\> deutsch: Nutzungsoberfläche oder Erstellung der Nutzungsoberfläche \\
-	UX (-Design) \> User Experience (Design) \\
-	\> deutsch: Nutzungserfahrung oder Erstellung der Nutzungserfahrung \\ 
+	API \> Application Programming Interface \\
+	\> deutsch: Programmierschnittstelle \\
+	CSS \> Cascading Style Sheets \\
+	HTML \> Hypertext Markup Language \\
+	W3C \> World Wide Web Consortium \\
+	\> deutsch: Internet Konsortium \\
+	Webapp \> Web Application \\
+	\> deutsch: Webanwendung
+	
 \end{tabbing}
 
 
@@ -351,31 +355,81 @@ Die Entwicklung von Anwendungen für das Web wird eine immer beliebtere Alternat
 
 Der Anteil an Full-Stack Entwicklerinnen und Entwicklern nahm im Jahr 2017 stark zu und erreichte einen relativen Wert von 46,3 \%. Der Anteil stieg weiter und erreichte im Jahr 2020 den Höchststand mit 54,9 \%. Im Folgejahr viel der Wert gering. Mit einer zeitweise absoluten Mehrheit von Web-Developern unter den Teilnehmenden der Umfrage lässt sich eine Beliebtheit und Relevanz dieser Technologie schlussfolgern. Die steigende Anzahl zeigt auch, dass Web-Anwendungen über die Jahre an Relevanz gewonnen haben. Hier sei jedoch zu erwähnen, dass Full-Stack Developer nur einen Anteil der Teilnehmenden abbildet, die mit Webtechnologien arbeiten. Berufsbezeichnungen wie Front-End Developer oder Back-End Developer gehören ebenfalls zu den Webentwicklerinnen und -entwicklern, finden jedoch zur Minimierung der Komplexität hier keine Beachtung. \\ 
 
-Webanwendungen bieten zahlreiche Vorteile gegenüber konventionellen nativen Anwendungen, sowohl aus Sicht der Developer als auch aus User-Sicht. Hier sei beispielsweise die universelle Erreichbarkeit von jedem Endgerät zu erwähnen. Jedoch müssen ebenfalls die Nachteile bedacht werden, sollte sich für die Entwicklung von Software als Webanwendung entschieden werden. Hier kann als Beispiel die Vielzahl von Webbrowsern mit uneinheitlichen Standards erwähnt werden. Entwicklerinnen und Entwickler müssen sich über die Implikationen der Wahl zwischen nativen Anwendungen und Webanwendungen im Klaren sein, um den Entwicklungsaufwand gering und die Nutzungserfahrung positiv zu gestalten. Welche Aspekte Front-End Developer bei dieser Wahl beachten müssen und welche Lösungen moderne Technologien für dieses Problem bieten, wird in dieser Arbeit aufgezeigt. Zentrale Betrachtung findet dabei der Gedanke einer Remigration von Webanwendungen zu nativen Anwendungen vor dem Hintergrund der großen Zahl an Webentwicklerinnen und -entwicklern.
+Webanwendungen bieten zahlreiche Vorteile gegenüber konventionellen nativen Anwendungen, sowohl aus Sicht der Entwickelnden als auch aus Nutzenden-Sicht. Hier sei beispielsweise die universelle Erreichbarkeit von jedem Endgerät zu erwähnen. Jedoch müssen ebenfalls die Nachteile bedacht werden, sollte sich für die Entwicklung von Software als Webanwendung entschieden werden. Hier kann als Beispiel die Vielzahl von Webbrowsern mit uneinheitlichen Standards erwähnt werden. Entwicklerinnen und Entwickler müssen sich über die Implikationen der Wahl zwischen nativen Anwendungen und Webanwendungen im Klaren sein, um den Entwicklungsaufwand gering und die Nutzungserfahrung positiv zu gestalten. Welche Aspekte Front-End Developer bei dieser Wahl beachten müssen und welche Lösungen moderne Technologien für dieses Problem bieten, wird in dieser Arbeit aufgezeigt. Zentrale Betrachtung findet dabei der Gedanke einer Remigration von Webanwendungen zu nativen Anwendungen vor dem Hintergrund der großen Zahl an Webentwicklerinnen und -entwicklern.
 
 \subsection{Zielsetzung}
-Ziel dieser Arbeit ist die Dokumentation der Möglichkeiten, die sich Entwickelnden von Webanwendungen bieten, sollten sie native Anwendungen entwickeln wollen. Abschließend soll der Versuch einer Vorhersage als begründete Vermutung getätigt werden, ob sich native Anwendungen im Vergleich zu Webanwendungen zukünftig durchsetzen werden. 
+Ziel dieser Arbeit ist die Dokumentation der Möglichkeiten, die sich Entwickelnden von Webanwendungen bieten, sollten sie eine Migration zu nativen Anwendungen anstreben. Abschließend soll der Versuch einer Vorhersage als begründete Vermutung getätigt werden, ob sich native Anwendungen im Anbetracht moderner Möglichkeiten im Vergleich zu Webanwendungen zukünftig durchsetzen werden. 
 
 \subsection{Aufbau und Vorgehensweise}
-Um die Möglichkeiten der Entwicklung von Anwendungen bestmöglich zu vergleichen, werden zunächst die Browser mit den größten Marktanteilen verglichen. Die Betrachtung findet dabei sowohl aus Sicht der Nutzerinnen und Nutzer als auch aus Developer-Sicht statt. Dabei wird ein besonderes Augenmerk auf die Unterschiede der Technologien gelegt. Darauf folgend werden die Betriebssysteme und ihre Eigenheiten verglichen, für welche native Software entwickelt werden soll. Auch hier werden die Marktführer der Betriebssysteme für Desktop und Smartphone beziehungsweise Tablet verglichen. Als letzter Bestandteil des Literature Reviews werden moderne Cross-Plattform-Technologien verglichen. Hierbei werden die Stärken und Schwächen der Lösungen verglichen, wie auch die Programmiersprache vor dem Hintergrund eines Web-Developers. \\
+Um die Möglichkeiten der Entwicklung von Anwendungen bestmöglich zu vergleichen, werden zunächst die Browser mit den größten Marktanteilen verglichen. Die Betrachtung findet dabei sowohl aus Sicht der Nutzerinnen und Nutzer als auch aus der von Entwickelnden statt. Dabei wird ein besonderes Augenmerk auf die Unterschiede der Technologien gelegt. Darauf folgend werden die Betriebssysteme und ihre Eigenheiten verglichen, für welche native Software entwickelt werden soll. Auch hier werden die Marktführer der Betriebssysteme für Desktop und Smartphone beziehungsweise Tablet verglichen. Als letzter Bestandteil des Literature Reviews werden moderne Cross-Plattform-Technologien verglichen. Hierbei werden die Stärken und Schwächen der Lösungen verglichen, wie auch die Programmiersprache vor dem Hintergrund eines Web-Developers. \\
 
-Im Fokus des Praxisteils dieser Arbeit steht der Vergleich der Technologien aus praktischer Sicht. Hierzu werden mithilfe der betrachteten Technologien Anwendungen erstellt, welche vorab definierte Anforderungen erfüllen. Die Ausführungen werden daraufhin anhand der Entwicklungserfahrung verglichen. Der praktische Teil erfolgt dabei vor dem Hintergrund eines Web-Developers. 
+ Im Fokus des Praxisteils dieser Arbeit steht der Vergleich der Technologien aus praktischer Sicht. Hierzu werden mithilfe der betrachteten Technologien Anwendungen erstellt, welche vorab definierte Anforderungen erfüllen. Die Ausführungen werden daraufhin anhand der Entwicklungserfahrung verglichen. Der praktische Teil erfolgt dabei vor dem Hintergrund eines Web-Developers. 
 
-\section{Literature Review}
+\section{Möglichkeiten zur Entwicklung von Anwendungen}
 
 \subsection{Webanwendungen}
 
-\subsubsection{Warum Webanwendungen?}
+Die steigende Zahl der Full-Stack Entwickelnden der letzten Jahre zeigt den Bedarf nach Webanwendungen aus Sicht der Unternehmen \autocite{stackoverflow_2020}. Aus diesem Trend lässt sich die Vermutung ableiten, dass die Relevanz von Webanwendungen für die Nutzenden und Kunden dieser Unternehmen ebenfalls zunimmt. Diese Vermutung wird dadurch bestätigt, dass die zwanzig am häufigsten besuchten Websites aus November 2021 Webanwendungen sind \autocite{Clement}. Beim Betrachten derartiger Statistiken stellt sich die Frage, ab wann eine Website eine Webanwendung ist. Zur Klärung folgen nun Definitionen der gängigen Begriffe für diese Arbeit: 
 
-\subsubsection{Browser}
+\begin{itemize}
+	\item[] \textbf{Website}: Eine Website ist eine Sammlung von aufrufbaren Webseiten. Sie bildet einen Internetauftritt ab.
+	\item[] \textbf{Webseite}: Eine Webseite ist ein einzeln aufrufbarer Bestandteil einer Website und bildet einen Zustand einer Ansicht im Webbrowser ab.
+\end{itemize}
 
-\paragraph{IE11}
+Eine Webanwendung ist eine besondere Form einer Website. Eine Website ist im ursprünglichen Ansatz eine Sammlung von HTML-Dokumenten. Diese werden von einem Server über das HTTP-Protokoll an einen Client, meist ein Webbrowser, übertragen. So besteht hier nur eine Richtung des Datenaustauschs: von dem Server zum Client. Eine Webanwendung setzt einen Server voraus, welcher Businesslogik besitzt. Dazu werden Schnittstellen, sogenannte APIs, von dem Client angesprochen. Die APIs eines Webservers ermöglichen eine bidirektionale Kommunikation. So kann eine nutzende Person Daten von dem Server empfangen und an diesen übermitteln. Der Server verarbeitet die Daten und bietet dem Nutzenden eine Webseite mit dynamischem Inhalt an. \\
+Praktische Beispiele von Webanwendungen sind jederzeit im Internet einsehbar, so auch die eingangs erwähnten meistbesuchten Websites im November 2021. Diese umfassen \textit{google.com} auf dem ersten Platz mit 45,41 Milliarden monatlichen Aufrufen, gefolgt von \textit{youtube.com} und \textit{facebook.com} \autocite{Clement}. \\
 
-\paragraph{Firefox}
+Ein Frontend einer Webanwendung bedient sich den drei grundsätzlichen Programmier- und Markup-Sprachen des Webs: \textit{HTML}, \textit{CSS} und \textit{JavaScript}. \\
+Es ist möglich, jedoch ineffizient, eine Webanwendung nur mit diesen Technologien zu entwicklen. Moderne Frameworks und Libraries vereinfachen Probleme und Herausforderungen und sorgen so für eine angenehmere Entwicklungserfahrung und eine höhere Entwicklungsgeschwindigkeit. Zu den bekanntesten Technologien gehören unter anderem \textit{React.js}, \textit{Angular} und \textit{Vue.js} \autocite{Clement}. Webframeworks und -libraries vereinfachen den Aufwand der Entwicklung durch die zentrale Nutzung von \textit{JavaScript} und \textit{TypeScript}, wobei \textit{CSS} und \textit{HTML} durch technologiespezifische Aspekte erweitert werden. \\
+Ziel der Nutzung von Webframeworks und -libraries ist eine einfache Kommunikation mit einem Backend oder anderen APIs, die Abdeckung einer Vielzahl von Browsern und letztendlich das Rendern von HTML, CSS und clientseitigem JavaScript im Browser der nutzenden Person. Welche Vor- und Nachteile Webanwendungen verglichen mit nativen Technologien mit sich bringen, wird im Folgenden erläutert.
 
-\paragraph{Chrome}
+\subsubsection{Vor- und Nachteile der Entwicklung von Webanwendungen}
 
-\paragraph{Safari}
+\textcite[27]{Jobe} begründet den rapiden Fortschritt von Webanwendungen mit der Etablierung der Technologie \textit{HTML5}. \textit{HTML5} und die verwandten Technologien \textit{CSS3} und \textit{JavaScript} sorgen dafür, dass Webapps mit nativen Anwendungen in den Punkten Funktionalität, Design, Interaktion und Einsatz von Multimedia konkurrieren können. Als besondere Vorteile erwähnt \textcite[28]{Jobe} die Update-Frequenz und die Entwicklung als Ganzes. Der Autor sieht in der Monetarisierung, verglichen mit nativen Anwendungen, Nachteile, da für das Web keine einheitlichen Monetarisierungsstrategien existieren. Da sich dieser Aspekt seit der Veröffentlichung der Arbeit jedoch weiterentwickelt hat, wird dieser Punkt ebenfalls betrachtet. \\
+Nachteile sieht \textcite[28]{Jobe} in den Punkten Schaffen und Konsumieren von Inhalten, User Experience, Performanz und Funktionalität. Hierbei ist auffällig, dass die Anzahl der Nachteile überwiegt. Wie kritisch diese Nachteile jedoch sind, und ob die Vorteile dennoch überwiegen, wird im Folgenden unter modernen Gesichtspunkten erläutert. \\
+
+\paragraph{Update-Frequenz}
+
+\textcite[28]{Jobe} gibt die Frequenz, mit welcher Updates für eine Webanwendung geliefert werden nicht direkt als Vorteil an, sondern vergleicht lediglich den formalen Update-Vorgang von nativen Programmen über beispielsweise App-Stores mit dem informalen Update-Möglichkeiten von Webanwendungen. Bei nativen Anwendungen muss in diesem Kontext Erwähnung finden, dass der Nutzerin oder dem Nutzer in der Regel die Entscheidung überlassen wird, ob die installierte Software aktualisiert werden soll. Diese Wahl impliziert jedoch die Gefahr, Sicherheitsupdates zu verpassen. Aus Sicht eines Entwicklenden sollte darauf geachtet werden, dass der Nutzende auf wichtige Sicherheitsupdates aufmerksam gemacht wird. Sollte sich für eine native Softwarelösung basierend auf App-Stores entschieden werden, besteht die Möglichkeit, einen Changelog zu führen und so die Nutzenden vor einer Aktualisierung über Änderungen zu informieren. \\
+Webanwendungen hingegen können jederzeit aktualisiert werden, ohne dass Nutzende informiert oder um Genehmigung gebeten werden müssen. Vorteile dieses Ansatzes sind beispielsweise die User Experience einer stets aktuellen Software, es werden keine Daten heruntergeladen und installiert, was abhängig von der Bandbreite und der Speichergeschwindigkeit längere Zeit in Anspruch nehmen kann, und zuletzt profitieren Nutzenden schnell von Sicherheitsupdates. Bei äußerst kritischen Problemen der Software, kann der Zugang zu den Webservern temporär gesperrt werden während Wartungsarbeiten durchgeführt werden. Auf diese Weise kann sichergegangen werden, dass in dem Moment keine Person Zugriff auf die Software hat.
+
+\paragraph{Entwicklung}
+
+Wie bereits eingangs erwähnt, bilden die Standards \textit{HTML5}, \textit{CSS3} und \textit{JavaScript} die Grundlage der modernen Webentwicklung. Sollte sich demnach für die Entwicklung der Anwendung als Webapp entschieden werden, sollten die Entwickelnden diese Technologien beherrschen. Für besondere Anwendungsfälle pflegt das \textit{World Wide Web Consortium}, kurz W3C, eine Liste von verfügbaren Standards und Technologien auf dem Weg zur Standardisierung \autocite{W3C}. Im Folgenden wird eine Auswahl von anwendungsbezogenen Webtechnologien gezeigt, welche die Erfahrungen für Nutzende und Entwickelnde verbessern können. Diese sind nach ihren Status durch die W3C aufgeteilt:
+
+\begin{table}[H]
+	\centering
+	\caption{Ausgewählte Standards und zugehörige Status der W3C}
+	\begin{center}
+		\begin{tabularx}{\linewidth}{| Y | Y | Y | Y |}
+			\hline
+			\textbf{W3C Recommendations} & \textbf{Proposed Recommendations} & \textbf{Candidate Recommendations} & \textbf{Working Draft} \\
+			\hline \hline
+			MathML & Payment Request API & WebXR Device API & Picture-in-Picture \\
+			\hline
+			SVG & Geolocation API & Media Capture and Streams & Web GPU \\
+			\hline
+			Server-Sent Events & & Accelerometer & Geolocation Sensor \\
+			\hline
+			HTML5 Web Messaging & & Gyroscope & \\
+			\hline
+		\end{tabularx}
+	\end{center}	
+	Die aufgelisteten Technologien haben sehr spezielle Anwendungsgebiete. \textit{MathML} ist beispielsweise eine Markup-Sprache zum Erstellen mathematischer Formeln, etwa wie mit \LaTeX. Im Kontext dieser Arbeit sind jedoch native APIs, wie \textit{Accelerometer} oder \textit{Gyroscope}, von besonderer Wichtigkeit, da sie die Fähigkeiten und Einsatzgebiete von Webanwendungen mit denen von nativen Anwendungen verschwimmen lassen \autocite{W3C}.
+\end{table}
+
+Wie die Standards und die als Standard antizipierten Technologien des W3C zeigen, werden Merkmale nativer Software ihren Weg in den Webbrowser finden. Die Abstraktion dieser über HTML, CSS und JavaScript vereinfacht dabei die plattform- und browserunabhängige Entwicklung der gewünschten Software, vorausgesetzt die Browser unterstützen den Standard. 
+
+
+\paragraph{Monetarisierung}
+
+\paragraph{Schaffen und Konsumieren von Inhalten}
+
+\paragraph{User Experience}
+
+\paragraph{Performanz}
+
+\paragraph{Funktionalität}
 
 \subsection{Native Anwendungen}
 
@@ -428,6 +482,8 @@ Im Fokus des Praxisteils dieser Arbeit steht der Vergleich der Technologien aus 
 \subsubsection{Xamarin}
 
 \section{Diskussion}
+
+\subsection{Beleg der Hypothese}
 
 \subsection{Limitation}
 
