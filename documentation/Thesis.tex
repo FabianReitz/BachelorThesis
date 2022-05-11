@@ -838,6 +838,16 @@ Zuletzt bleibt die Betrachtung des Viewports und seiner Abstraktion. Wie auf den
 
 \subsubsection{Electron}
 
+Die Umsetzung der Anwendung in Electron gestaltete sich als herausfordernder. Über \texttt{npx create-react-app .} wurde das React-Framework aufgesetzt. Das statische JavaScript wurde geringfügig geändert, wie es von der Electron-Dokumentation empfohlen wird. \\
+
+Die Integration eines Batterie-Indikators stellte sich auf MacOS, Windows und Linux als nicht möglich heraus. Durch die strenge Aufteilung des Node.js-Backends und des Chromium-Frontends, konnte das Node.js-Backend die notwendigen Informationen nicht ohne weiteres an das Frontend weiterleiten. Als Kompromiss wurden Event-Listener in das Backend gebaut, welche eine Nachricht in die Konsole schreiben, sollte die Stromzufuhr des Gerätes wechseln. Da das Windows-System und das virtuelle Linux-System jeweils nur über eine stationäre Stromversorgung verfügt, konnte die Funktion auf diesen Plattformen nicht getestet werden. Auf der MacOS Plattform gab es hingegen keine Probleme (siehe Anhang 2.4). \\
+
+Die Einbindung des Gyroskop-Sensors stellte ebenfalls eine Herausforderung dar, da diese Funktion nicht abstrahiert ist. Eine eigene, mehrzeilige Abstraktion wurde dafür entwickelt. Der Funktionalitätsprüftung steht jedoch der Mangel von Gyroskop-Sensoren der Plattformen im Weg. Aus diesem Grund konnte auf keiner der Plattformen die Funktion bestätigt werden. \\
+
+Der Button wird durch Electron nicht als native UI-Komponente dargestellt, sondern als HTML-Element. Daher sieht der Button plattformunabhängig gleich aus. Die Push-Mitteilungen konnten auf jeder Plattform das native Mitteilungssystem problemlos ansprechen (siehe Anhang 2.5). Lediglich auf MacOS muss der Nutzende das Empfangen von Push-Mitteilungen genehmigen. \\
+
+Auch hier verbleibt die Betrachtung des Viewports und seiner Abstraktion. Die Viewports der Anwendungen auf Windows und Linux sind rechteckig, weshalb die Betrachtung auf den Viewport der Anwendung auf MacOS fällt. Die abgerundeten Ecken des Programmes spiegeln sich nicht in der \texttt{border} wieder. Electron als Framework geht hier also, ähnlich wie React Native, von einem stets rechteckigen Viewport aus. Dies ist nachteilig zu bewerten, da Entwickelnde so stets überprüfen müssen, ob der Inhalt der Anwendung beschnitten wird. \\
+
 \section{Diskussion}
 
 \subsection{Beleg der Hypothese}
@@ -1098,6 +1108,43 @@ Kiel, den 16.05.2022 \\ \\
 	\texttt{expo-notifications} unterstützt simuliertes Android nicht. 
 \end{figure}
 
+\newpage
+
+\subsubsection*{Anhang 2.4: MacOS Erkennung der externen Stromversorgung}
+\addcontentsline{toc}{subsubsection}{Anhang 2.4: MacOS Erkennung der externen Stromversorgung}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel MacOS: Electron und Stromversorgung}
+	\includegraphics[scale=0.3]{_assets/Mac_Electron_Energy.png} \\
+	Das Node.js Backend von Electron erkennt den Unterschied zwischen externer Stromversorgung und Akkubetrieb.
+\end{figure}
+
+\newpage
+
+\subsubsection*{Anhang 2.5: Electron: Native Mitteilungen von MacOS, Windows und Linux}
+\addcontentsline{toc}{subsubsection}{Anhang 2.5: Electron: Native Mitteilungen von MacOS, Windows und Linux}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel MacOS: Native Mitteilung von Electron}
+	\includegraphics[scale=0.25]{_assets/Mac_Electron_Notification.png} \\
+	Nachdem der Nutzende die Genehmigung gegeben hat, können mit Electron entwickelte Anwendungen problemlos auf das Mitteilungssystem zugreifen.
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel Windows: Native Mitteilung von Electron}
+	\includegraphics[scale=0.15]{_assets/Windows_electron.png} \\
+	Native Push Mitteilungen auf einer Windows Plattform.
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel Linux: Native Mitteilung von Electron}
+	\includegraphics[scale=0.2]{_assets/Linux_Electron.png} \\
+	Native Push Mitteilungen auf einer Windows Plattform.
+\end{figure}
 
 \end{document}
 
