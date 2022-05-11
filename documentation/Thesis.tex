@@ -804,8 +804,8 @@ Folgende Elemente sollen in die zu entwickelnden Anwendungen integriert werden:
 \begin{itemize}
 	\item eine Textanzeige über den aktuellen Status der Batterie des Gerätes
 	\item eine Textanzeige über die aktuelle Ausrichtung des Gerätes
-	\item eine Umrandung des Viewports
 	\item ein nativer Button, welcher eine Mitteilung über das native Mitteilungssystem auslöst 
+	\item eine Umrandung des Viewports
 \end{itemize}
 
 Über die Textanzeigen wird de Zugriff der Anwendungen auf die Sensor-APIs geprüft. Die Umrandung des Viewports dient der Visualisierung einer möglichen Integration nicht-rechteckiger Displays in das Framework, der Button prüft die Verfügbarkeit nativer UI-Elemente und die Mitteilung testet die Integration nativer Mitteilungen in dem Framework. Das Styling der Anwendungen wird auf ein Minimum reduziert, da der Fokus auf der Funktionalität liegt. \\
@@ -817,9 +817,26 @@ Zur genaueren Visualisierung soll folgendes MockUp dienen:
 	\includegraphics[scale=0.28]{_assets/MockUp.png} \\
 	Das MockUp zeigt die grundlegend umzusetzenden Anforderungen. Werte und Anordnung dienen hier als Orientierung und können sich während der Entwicklung ändern.
 \end{figure}
-
+ 
+ \newpage
  
 \subsection{Vergleich der Umsetzungen}
+
+\subsubsection{React Native}
+
+Die Umsetzung der Anwendung in React Native erfolgte überwiegend problemlos. Das Aufsetzen des Projekts mittels Expo wies keine Schwierigkeiten auf. Der JSX-Syntax ist bekannt, daher war keine Grundlagenforschung nötig. \\
+
+Die Einbindung des Batterie-Indikators stellte dank des Open-Source-Pakets \texttt{@use-expo/battery} kein Hindernis dar. Sowohl auf der simulierten Android-Plattform, als auch auf dem physischen iOS-Smartphone verhält sich die Funktion wie erwartet (siehe Anhang 2.2). Die Integration in den Code war mit wenigen Zeilen möglich und es ist kein plattformspezifischer Code nötig gewesen. Über diese Funktion kann beispielsweise die Leistung von rechenintensiven Anwendungen gedrosselt werden, sollte keine externe Stromversorgung an das Gerät anliegen. So kann der Akku geschont und die Nutzungszeit verlängert werden. \\
+Als Nachteil muss hier die fehlende Kompatibilität mit einem iOS-Simulator genannt werden \autocite{Expo_battery}. Auch wenn dieses Problem durch den Versuchsaufbau nicht eingetreten ist, sollte es dennoch Erwähnung finden. \\
+
+Die Integration des Gyroskop-Sensors stellte ebenfalls kein Hindernis dar. Sowohl auf der simulierten Android-Plattform, als auch auf dem physischen iOS-Smartphone verhält sich die Funktion wie erwartet. Da der Sensor nur bei einer Bewegung des Gerätes auslöst, ist eine bildliche Darstellung hier nicht möglich. Die Einbindung des Sensors in den Code erfolgte mit wenigen Zeilen zum Setzen des States und der Event-Subscription. Danach ließen sich die Werte der Neigung einfach auslesen. Es war kein plattformspezifischer Code nötig. \\
+Auch hier wird der iOS-Simulator nicht unterstützt, was nachteilig zu betrachten ist \autocite{Expo_gyroscope}. \\
+
+Der Button als natives UI-Element wurde von beiden Plattformen problemlos erkannt und als solcher mit der plattformanhängigen Designsprache angezeigt (siehe Anhang 2.2). Die Einbindung der Push Mitteilung erwies sich hingegen als Herausforderung. Da die Push Mitteilungen in Produktivsystemen von Backend-Systemen, wie beispielsweise \textit{Firebase}, kommen, musste für dieses Beispiel ein Umweg über Expos lokales Benachrichtigungssystem genutzt werden. Dies benötigte zusätzlichen Code, weshalb die Funktion im Umfang wuchs, verglichen mit den anderen Funktionen. Weiterhin muss plattformspezifischer Code eingebunden werden, da React Native die Notification-Funktion nicht über beide Plattformen abstrahiert. Zuletzt muss Erwähnung finden, dass \texttt{expo-notifications} lediglich auf physikalischen Geräten funktioniert, weshalb Android in diesem Beispiel keine Betrachtung finden kann (siehe Anhang 2.3). \\
+
+Zuletzt bleibt die Betrachtung des Viewports und seiner Abstraktion. Wie auf den Screenshots zu erkennen (siehe Anhang 2.2 und 2.3), geht React Native von einem rechteckigen Viewport aus. Als Folge dessen werden die abgerundeten Ecken beider Plattformen und die Kameraaussparung des iPhones nicht von dem Style-Attribut \texttt{borderStyle} berücksichtigt.
+
+\subsubsection{Electron}
 
 \section{Diskussion}
 
@@ -1042,6 +1059,45 @@ Kiel, den 16.05.2022 \\ \\
 	\includegraphics[scale=0.3]{_assets/facebook_native_app2.png} \\
 	Facebook empfiehlt als einer der ersten Schritte nach der Registrierung via Smartphone-Webbrowser das Herunterladen der eigenen App.
 \end{figure}
+
+\newpage
+
+\subsubsection*{Anhang 2.2: Verschiedene Status der Batterien auf Android und iOS}
+\addcontentsline{toc}{subsubsection}{Anhang 2.2: Verschiedene Status der Batterien auf Android und iOS}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel iOS: Ohne und mit externer Stromversorgung}
+	\includegraphics[scale=0.3]{_assets/iOS_unpugged_charging.png} \\
+	React Native erkennt das Vorhandensein einer externen Stromquelle. 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel Android: Ohne und mit externer Stromversorgung}
+	\includegraphics[scale=0.3]{_assets/Android_unplugged_charging.png} \\
+	React Native erkennt das Vorhandensein einer externen Stromquelle. 
+\end{figure}
+
+\newpage
+
+\subsubsection*{Anhang 2.3: Push Mitteilungen auf einer physischen iOS-Plattform und einer simuliertem Android-Plattform}
+\addcontentsline{toc}{subsubsection}{Anhang 2.3: Push Mitteilungen auf einer physischen iOS-Plattform und einer simuliertem Android-Plattform}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel iOS: Push Mitteilung}
+	\includegraphics[scale=0.08]{_assets/iOS_push_notification.jpg} \\
+	Nutzung des nativen Notification-Systems von iOS. 
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Beispiel Android: Push Mitteilung}
+	\includegraphics[scale=0.25]{_assets/Android_push_notification.png} \\
+	\texttt{expo-notifications} unterstützt simuliertes Android nicht. 
+\end{figure}
+
 
 \end{document}
 
