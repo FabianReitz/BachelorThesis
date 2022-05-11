@@ -20,6 +20,10 @@ import { Notification } from './Notification';
 // Android: ❌
 // iOS: ✅
 
+// Border
+// Android: ✅
+// iOS: ✅
+
 export default function App() {
     // Using @use-expo/battery to get out-of-the-box battery hook.
     const [batteryState] = useBatteryState();
@@ -79,6 +83,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        borderStyle: 'solid',
+        borderWidth: 20,
+        borderColor: 'blue',
     },
 });
 
