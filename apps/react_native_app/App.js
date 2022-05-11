@@ -3,6 +3,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { useBatteryState } from '@use-expo/battery';
 
+// Battery indicator:
+// Android: ✅
+// iOS: ✅
+
 export default function App() {
     // Using @use-expo/battery to get out-of-the-box battery hook.
     const [batteryState] = useBatteryState();
