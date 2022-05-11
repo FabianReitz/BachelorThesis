@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BatteryState } from 'expo-battery';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { Gyroscope } from 'expo-sensors';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import { useBatteryState } from '@use-expo/battery';
+
+import { Notification } from './Notification';
 
 // Battery indicator:
 // Android: ✅
@@ -11,6 +13,11 @@ import { useBatteryState } from '@use-expo/battery';
 
 // Gyroscope API:
 // Android: ✅
+// iOS: ✅
+
+// Notification:
+// - has to be logged in locally into expo account, otherwise a backend (e.g. firebase) is needed
+// Android: ❌
 // iOS: ✅
 
 export default function App() {
@@ -46,6 +53,7 @@ export default function App() {
 
     const { x, y, z } = gyroscope;
 
+    // Retuned Component
     return (
         <View style={styles.container}>
             <StatusBar hidden />
@@ -54,10 +62,13 @@ export default function App() {
             <Text style={{ marginBottom: 20 }}>
                 {states[batteryState] || ''}
             </Text>
+            {/* Gyroscope API */}
             <Text>Gyroscope:</Text>
-            <Text>
+            <Text style={{ marginBottom: 60 }}>
                 x: {round(x)} y: {round(y)} z: {round(z)}
             </Text>
+            {/* Push Notification Button */}
+            <Notification />
         </View>
     );
 }
