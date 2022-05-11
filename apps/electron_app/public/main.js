@@ -1,9 +1,18 @@
 const { app, BrowserWindow } = require('electron');
+const electron = require('electron');
+
+electron.powerMonitor.addListener('on-ac', (e) => {
+    console.log('Plugged in.');
+});
+
+electron.powerMonitor.addListener('on-battery', (e) => {
+    console.log('Running on battery.');
+});
 
 function createWindow() {
     // Create the browser window.
     const win = new BrowserWindow({
-        width: 800,
+        width: 400,
         height: 600,
         webPreferences: {
             nodeIntegration: true,
@@ -12,9 +21,6 @@ function createWindow() {
 
     //load the index.html from a url
     win.loadURL('http://localhost:3000');
-
-    // Open the DevTools.
-    win.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
