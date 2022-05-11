@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { BatteryState } from 'expo-battery';
-import { Button, StyleSheet, Text, View } from 'react-native';
 import { Gyroscope } from 'expo-sensors';
 import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
 import { useBatteryState } from '@use-expo/battery';
 
 import { Notification } from './Notification';
