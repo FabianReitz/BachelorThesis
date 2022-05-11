@@ -9,10 +9,15 @@ import { useBatteryState } from '@use-expo/battery';
 // Android: ✅
 // iOS: ✅
 
+// Gyroscope API:
+// Android: ✅
+// iOS: ✅
+
 export default function App() {
     // Using @use-expo/battery to get out-of-the-box battery hook.
     const [batteryState] = useBatteryState();
 
+    // Using expo-sensors for gyroscope API.
     const [gyroscope, setGyroscope] = useState({
         x: 0,
         y: 0,
