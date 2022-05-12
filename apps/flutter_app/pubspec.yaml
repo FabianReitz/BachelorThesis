@@ -36,6 +36,8 @@ dependencies:
     battery_info:
     battery_plus:
     motion_sensors:
+    flutter_local_notifications:
+    awesome_notifications:
 
 dev_dependencies:
     flutter_test:

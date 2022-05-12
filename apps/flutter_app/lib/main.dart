@@ -3,6 +3,7 @@ import 'package:battery_plus/battery_plus.dart';
 import 'dart:async';
 import 'package:motion_sensors/motion_sensors.dart';
 import 'package:vector_math/vector_math_64.dart' hide Colors;
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 void main() async {
   runApp(MyApp());
