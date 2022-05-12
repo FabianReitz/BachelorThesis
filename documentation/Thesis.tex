@@ -848,15 +848,69 @@ Der Button wird durch Electron nicht als native UI-Komponente dargestellt, sonde
 
 Auch hier verbleibt die Betrachtung des Viewports und seiner Abstraktion. Die Viewports der Anwendungen auf Windows und Linux sind rechteckig, weshalb die Betrachtung auf den Viewport der Anwendung auf MacOS fällt. Die abgerundeten Ecken des Programmes spiegeln sich nicht in der \texttt{border} wieder. Electron als Framework geht hier also, ähnlich wie React Native, von einem stets rechteckigen Viewport aus. Dies ist nachteilig zu bewerten, da Entwickelnde so stets überprüfen müssen, ob der Inhalt der Anwendung beschnitten wird. \\
 
+Zu keinem Zeitpunkt musste bei der Nutzung von Electron plattformspezifischer Code genutzt werden.
+
+\subsubsection{Flutter}
+
+Die Entwicklung der Anwendung mithilfe von Flutter stellte sich als äußerst herausfordernd heraus, nicht zuletzt wegen des mangelnden Hintergrundwissens. Die Installation von Flutter als Framework war umfangreich, jedoch leicht zu folgen. Der \texttt{flutter doctor}-Befehl vereinfacht die Installation um ein vielfaches. Jedoch musste der Dart-Syntax und der flutter-typische Widget-Baum zunächst erlernt werden, was insbesondere anfangs viel Zeit in Anspruch nahm. Während der Entwicklung wurde lediglich mit der simulierten Android-Plattform gearbeitet. Die Ausführung auf den übrigen Plattformen erfolgte nach Abschluss der Entwicklung. \\
+
+Die Einbettung des Batterie-Indikators in die Code-Basis verlief dank des Pakets \texttt{battery\_plus} problemlos, sobald der Syntax und Aufbau der UI-Elemente verstanden wurde. Die Einbindung Gyroskop-Sensors benötigte Wissen im Bereich des State-Management, wodurch wesentlich mehr Code vonnöten war. Das \texttt{Border}-Element wurde ohne Probleme eingebunden. \\
+Die größte Herausforderung zeigte sich in der Implementierung der Push Benachrichtigungen. Zunächst wurden verschiedene Pakete auf die Abstraktion über die Plattformen getestet, darunter beispielsweise \texttt{awesome\_notifications} und \texttt{flutter\_local\_notifications}. Diese benötigen jedoch für jede Zielplattform eine Anpassung des nativen kompilierten Codes, beziehungsweise eine Fallunterscheidung für die Zielplattformen. Da dies der vorab festgelegten Definition der gemeinsamen Codebasis widerspricht, wird im Sinne der Vergleichbarkeit mit den übrigen CP-Frameworks in diesem Fall auf die Einbindung von Push Nachrichten verzichtet. \\
+
+Es folgt ein tabellarischer Vergleich, welche Zielplattformen problemlos mit der geschriebenen Codebasis arbeiten können:
+
+\begin{table}[H]
+ 	\centering
+ 	\caption{Die Zielsysteme führen das in Flutter geschriebene Programm wie erwartet aus}
+ 	\begin{center}
+ 		\begin{tabular}{| l | c |}
+ 			\hline
+ 			\textbf{Plattform} & \textbf{Ausführung problemlos} \\
+ 			\hline \hline
+			MacOS & \xmark \\
+ 			\hline
+ 			Windows & \xmark * \\
+ 			\hline
+ 			Linux & \xmark * \\
+ 			\hline
+ 			iOS & \Checkmark \\
+ 			\hline
+ 			Android & \Checkmark \\
+ 			\hline
+ 			Web & \xmark \\
+ 			\hline
+ 		\end{tabular}
+ 	\end{center}
+ 	Testergebnisse der Ausführung der plattformspezifischen Anwendungen. Die zusätzliche Markierung \texttt{*} zeigt, dass es garnicht erst zur Kompilierung kam.
+\end{table}
+
+Die hier aufgezeigten Ergebnisse wirken ernüchternd. Lediglich die mobilen Betriebssysteme waren in der Lage, die Software nach den genannten Kriterien auszuführen, abgesehen von der Integration der Push Nachrichten. \\
+
+Begonnen mit der Betrachtung der MacOS-Anwendung lässt sich kritisieren, dass der Gyroskop-Sensor keine Ergebnisse liefert. Dies ist auf das genutzte Paket \texttt{sensors\_plus} in der Version 1.3.1 zurückzuführen, welches lediglich Android, iOS und das Web unterstützt \autocite{sensors_plus}. Weiterhin zeigt die Nutzung des \texttt{Border}-Widgets keine Abstraktion für irreguläre Viewport-Formate. Das Widget geht von einem rechteckigen Viewport aus, wodurch sich die Umrandung nicht den abgerundeten Ecken anpasst. Diese Erkenntnis trifft ebenso auf die übrigen Plattformen zu. Zuletzt bleibt die Betrachtung des Batterie-Status. Dieser zeigt in jeder Situation eine voll geladene Batterie (siehe Anhang 2.6). Diese Angabe ist nicht korrekt, auch wenn die Dokumentation des Paketes \texttt{battery\_plus} ausdrücklich angibt, dass die Plattform unterstützt wird \autocite{battery_plus}. Die erbrachte Leistung der MacOS-Anwendung ist somit äußerst negativ zu bewerten. \\
+
+Die Betrachtung der Anwendungen für Windows und Linux lässt sich ebenfalls aus Entwicklungssicht als unzureichend bewerten. Die Kompilierung für diese Plattformen war nicht möglich, da die Flutter-Entwicklungsumgebung die Kompilierung für diese Systeme nur dann ermöglicht, wenn die Entwicklung auf diesen Plattformen erfolgt. Demnach braucht es im Fall von MacOS, Windows und Linux jeweils eine Plattform, auf welche die Flutter-Umgebung eingerichtet ist, um den Export für diese Plattformen zu ermöglichen. Aus Sicht eines Entwickelnden ist diese Beschränkung als äußerst negativ aufzufassen. \\
+
+Die Entwicklung und das Testen auf der physischen iOS-Plattform verlief wie erwartet. Flutter generiert über den \texttt{flutter build}-Befehl die nötigen Xcode-Dateien, welche dann auf das iPhone übertragen werden können. Der einzig negativ zu erwähnende Punkt ist die Umrandung, welche bereits Erwähnung fand (siehe Anhang 2.6). \\
+
+Vergleichbare Ergebnisse liefert die Android-Anwendung. Die angesprochenen Sensoren zeigen die erwarteten Ausgaben (siehe Anhang 2.6). Positiv aus Sicht eines Entwickelnden ist die nahtlose Integration der Simulatoren von Android-Studio zu erwähnen. \\
+
+Es bleibt die Betrachtung der Webanwendung, welche von Flutter erstellt wurde. Aufgrund der Begrenzungen von CSS wird auch in diesem Fall der Rand nicht an den Viewport angepasst, welcher teilweise abgerundete Ecken aufweist. Auch der Gyroskop-Sensor liefert erneut falsche Ergebnisse, da das Gerät über keinen  Sensor verfügt. Positiv überraschend ist die korrekte Anzeige über den Status der Batterie des Gerätes. Die Anwendung erkennt, ob die Batterie gelanden oder entladen wird (siehe Anhang 2.6). \\
+
+Abschließend ist im Vergleich mit React Native und Electron die positive Entwicklungserfahrung von Flutter zu erwähnen. Mithilfe der \texttt{Flutter Extension} für Visual Studio Code und dem umfangreichen \texttt{flutter}-CLI-Tool ist die Entwicklung, beispielsweise über automatisches Refactoring via Rechtsklick, denkbar einfach.
+
+\newpage
+
 \section{Diskussion}
 
-\subsection{Beleg der Hypothese}
+Gegenstand der Diskussion dieser Arbeit ist die Beantwortung der zentralen Frage, ob Entwickelnde eine Migration existierender Webanwendungen zu nativen Anwendungen anstreben sollten. Dazu werden zunächst die praktischen Umsetzungen ausgewertet. Dies erfolgt vor dem Hintergrund eines Webentwickelnden. Darauf folgt in der Limitation die Erwähnung der Aspekte und Kriterien, welche in dieser Arbeit keine Betrachtung fanden. In dem Ausblick wird der Versuch einer Vorhersage über die Relevanz von Webanwendungen, nativen Anwendungen und Cross-Platform-Frameworks unternommen.
+
+\subsection{Auswertung der Umsetzungen}
 
 \subsection{Limitation}
 
 \subsection{Ausblick}
 
-\section{Fazit}
+\section{Ist eine Migration von Webanwendungen zu nativen Anwendungen sinnvoll? Ein Fazit}
 
 % ---------------------
 % Literaturverzeichnis:
@@ -1145,6 +1199,34 @@ Kiel, den 16.05.2022 \\ \\
 	\includegraphics[scale=0.2]{_assets/Linux_Electron.png} \\
 	Native Push Mitteilungen auf einer Windows Plattform.
 \end{figure}
+
+\newpage
+
+\subsubsection*{Anhang 2.6: Flutter: Plattformspezifische Anwendungen auf MacOS, iOS, Android und dem Web}
+\addcontentsline{toc}{subsubsection}{Anhang 2.6: Flutter: Plattformspezifische Anwendungen auf MacOS, iOS, Android und dem Web}
+
+\begin{figure}[H]
+	\centering
+	\caption{Flutter Anwendung auf MacOS}
+	\includegraphics[scale=0.35]{_assets/Mac_Flutter_plugged.png} \\
+	Der Batterie-Status wird nicht korrekt ausgelesen und der Gyroskop-Sensor zeigt aufgrund fehlender Hardware falsche Ergebnisse an.
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\caption{Flutter Anwendung auf iOS}
+	\includegraphics[scale=0.35]{_assets/iOS_Flutter.png} \\
+	Die angesprochenen Sensoren liefern korrekte Ergebnisse.
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Flutter Anwendung im Webbrowser}
+	\includegraphics[scale=0.25]{_assets/WebApp_Flutter.png} \\
+	Der Gyroskop-Sensor zeigt aufgrund von fehlender Hardware falsche Ergebnisse an.
+\end{figure}
+
 
 \end{document}
 
