@@ -180,6 +180,8 @@
 \AtEveryCitekey{\iffieldundef{year}{\restorefield{labelyear}{\mkbibnodate}}{}}
 \AtEveryBibitem{\iffieldundef{year}{\restorefield{labelyear}{\mkbibnodate}}{}}
 
+% More space after bibliography entry
+\setlength\bibitemsep{1.5\itemsep}
 
 % --------------------------------
 %
@@ -299,12 +301,16 @@
 	CP \> Cross-Plattform \\
 	\> deutsch: plattformübergreifend \\
 	CSS \> Cascading Style Sheets \\
+	etc. \> et cetera \\
+	\> deutsch: und die übrigen Dinge \\
 	DOM \> Document Object Model \\
 	HTML \> Hypertext Markup Language \\
 	IDE \> Integrated Development Environment \\
 	\> deutsch: integrierte Entwicklungsumgebung \\
 	UI \> User Interface \\
 	\> deutsch: Nutzungsoberfläche \\
+	UX \> User Experience \\
+	\> deutsch: Nutzungserfahrung \\
 	W3C \> World Wide Web Consortium \\
 	\> deutsch: Internet Konsortium \\
 	Webapp \> Web Application \\
@@ -349,32 +355,32 @@
 \subsection{Einleitung}
 Während es unmöglich ist, den Ursprung des Internets auf einen exakten Zeitpunkt festzulegen, lässt sich jedoch mit Gewissheit sagen, dass die Entwicklung des Internets einen bedeutsamen Wendepunkt in der Geschichte der Menschheit darstellt \autocite[26]{Kleinrock}. \textcite{Floridi} sieht in dem Internet als „Infosphere“ \autocite[9]{Floridi} die vierte Revolution in einer Reihe von weltverändernden Wandlungen. Zu diesen Wandlungen gehören die Kopernikus-Revolution, die Darwin'sche Revolution und die Freud'sche Revolution. Diese Wenden veränderten das grundlegende Verständnis der Menschen sowohl über ihre Umwelt als auch über sich selbst \autocite[8f.]{Floridi}. \\
 
-Das Internet befindet sich in einem stetigen Wandel. Der Beginn des modernen Internets wird im Kontext dieser Arbeit auf den Zeitpunkt datiert, als Sir Tim Berners-Lee die ersten Webkomponenten im Jahr 1990 entwickelte. Berners-Lee arbeitete zu diesem Zeitpunkt bei \textit{CERN} in der Schweiz. Er entwickelte ein System zur Verwaltung von unternehmensinternen Information mittels des ersten Webbrowsers. Dieser war in der Lage, HTML-Dokumente von einem durch Berners-Lee entwickelten Webserver abzurufen und darzustellen \autocite{Berners-Lee}. \\
+Das Internet befindet sich in einem stetigen Wandel. Der Beginn des modernen Internets wird im Kontext dieser Arbeit auf den Zeitpunkt datiert, als Sir Tim Berners-Lee die ersten Webkomponenten im Jahr 1990 entwickelte. Berners-Lee arbeitete zu diesem Zeitpunkt bei CERN in der Schweiz. Er entwickelte ein System zur Verwaltung von unternehmensinternen Information mittels des ersten Webbrowsers. Dieser war in der Lage, HTML-Dokumente von einem durch Berners-Lee entwickelten Webserver abzurufen und darzustellen \autocite{Berners-Lee}. \\
 In der Geschichte des Internets finden sich einige Trends und Entwicklungen, welche als Meilensteine gesehen werden. Diese teilen das Internet historisch in Web 1.0, Web 2.0, Web 3.0 und Web 4.0 auf \autocite[133]{Kollmann}. \\
-Den Beginn der Geschichte des Internets bildet das Web 1.0. Dieses basiert überwiegend auf den Ideen von Berners-Lee und wird durch die Etablierung des Internets in der Gesellschaft erweitert. Somit besteht das Web 1.0 lediglich aus statischen HTML-Seiten, welche den Nutzenden in einem Webbrowser angezeigt wird. Der dominierende Webbrowser der Neunzigerjahre ist der \textit{Netscape Navigator} des Unternehmens \textit{Netscape Communications} \autocite{Oreilly}. Besonders für das Web 1.0 ist die binäre Rollenverteilung der Nutzenden, wie Kollmann beschreibt:
+Den Beginn der Geschichte des Internets bildet das Web 1.0. Dieses basiert überwiegend auf den Ideen von Berners-Lee und wird durch die Etablierung des Internets in der Gesellschaft erweitert. Somit besteht das Web 1.0 lediglich aus statischen HTML-Seiten, welche den Nutzenden in einem Webbrowser angezeigt wird. Der dominierende Webbrowser der Neunzigerjahre ist der Netscape Navigator des Unternehmens Netscape Communications \autocite{Oreilly}. Besonders für das Web 1.0 ist die binäre Rollenverteilung der Nutzenden, wie Kollmann beschreibt:
 \begin{quote}
 	„Zum einen gab es aktive Ersteller von Web-Inhalten, die, teils kommerziell, teils privat, Informationen einstellten und publizierten. Zum anderen gab es passive Konsumenten, die sich lediglich die bereitgestellten Inhalte ansehen konnten und auch gar keine andere Option hatten, als die Informationen zu empfangen und zu konsumieren“ \autocite[134]{Kollmann}.
 \end{quote}
 Dieser Passivität der Konsumierenden sind sich die Unternehmen der Zeit des Web 1.0 ebenfalls bewusst. So zeigen sich im Web 1.0 die ersten Ansätze von ausgefeilten E-Commerce-Strategien, welche darauf abzielen, Produkte und Dienstleistungen auf diesem neuen Markt zu vertreiben \autocite[1204]{Kollmann_Lomberg}. \\
-Das auf das Web 1.0 folgende Web 2.0 entstand um 2005 und markierte somit die Zeit, als die dot-com-Blase geplatzt ist. Diese stetige Wende ist aus einer Konferenz zwischen den Unternehmen \textit{O'Reilly} und \textit{MediaLive International}. Die Idee einer nächsten Evolutionsstufe des Internets kam den Unternehmen bei einem Brainstorming. Dieses Brainstorming brachte letztendlich die \textit{Web 2.0 Conference} hervor. Hierbei muss Erwähnung finden, dass Unternehmen das Buzzword \textit{Web 2.0} als Marketing-Element missbrauchen. Das erschwert die Einordnung des Web 2.0 umso mehr, da viele dieser Unternehmen nichts mit den Definitionsansätzen der \textit{Web 2.0 Conference} gemein haben. Die \textit{Web 2.0 Conference} versucht sich an einer Definition über zentrale Aspekte dieser neuen Iterationsstufe des Internets. Dazu gehören die Ansätze \textit{Web as a Platform} und \textit{User-Generated Content}. Die Rolle der passiven Konsumierenden des Web 1.0 veränderte sich demnach zu den aktiven Teilnehmenden des Web 2.0. Erste soziale Medien ermöglichen eine Interaktion mit anderen Nutzenden, Bewertungen auf E-Commerce-Seiten verschaffen Käuferinnen und Käufern eine Stimme und digitale Enzyklopädien laden zum Teilen des eigenen Wissens ein. Zentrale Plattformen des Web 2.0 sind somit \textit{Facebook}, \textit{eBay} und \textit{Wikipedia}. Anbieter einer Rich User Experience, vor allem \textit{Google}, lösen die Riesen des Web 1.0, beispielsweise \textit{Netscape}, ab \autocite{Oreilly}. Dabei spielen die sieben Grundprinzipien des Web 2.0 eine zentrale Rolle: Globale Vernetzung, Kollektive Intelligenz, Datengetriebene Plattformen, Perpetual Beta, Leichtgewichtige Architekturen, Geräteunabhängigkeit und Reichhaltige Oberfläche \autocite[Kollmann und Häsel 2007, zitiert nach][137]{Kollmann}. \\
+Das auf das Web 1.0 folgende Web 2.0 entstand um 2005 und markierte somit die Zeit, als die dot-com-Blase geplatzt ist. Diese stetige Wende ist aus einer Konferenz zwischen den Unternehmen O'Reilly und MediaLive International. Die Idee einer nächsten Evolutionsstufe des Internets kam den Unternehmen bei einem Brainstorming. Dieses Brainstorming brachte letztendlich die Web 2.0 Conference hervor. Hierbei muss Erwähnung finden, dass Unternehmen das Buzzword Web 2.0 als Marketing-Element missbrauchen. Das erschwert die Einordnung des Web 2.0 umso mehr, da viele dieser Unternehmen nichts mit den Definitionsansätzen der Web 2.0 Conference gemein haben. Die Web 2.0 Conference versucht sich an einer Definition über zentrale Aspekte dieser neuen Iterationsstufe des Internets. Dazu gehören die Ansätze Web as a Platform und User-Generated Content. Die Rolle der passiven Konsumierenden des Web 1.0 veränderte sich demnach zu den aktiven Teilnehmenden des Web 2.0. Erste soziale Medien ermöglichen eine Interaktion mit anderen Nutzenden, Bewertungen auf E-Commerce-Seiten verschaffen Käuferinnen und Käufern eine Stimme und digitale Enzyklopädien laden zum Teilen des eigenen Wissens ein. Zentrale Plattformen des Web 2.0 sind somit Facebook, eBay und Wikipedia. Anbieter einer Rich User Experience, vor allem Google, lösen die Riesen des Web 1.0, beispielsweise Netscape, ab \autocite{Oreilly}. Dabei spielen die sieben Grundprinzipien des Web 2.0 eine zentrale Rolle: Globale Vernetzung, Kollektive Intelligenz, Datengetriebene Plattformen, Perpetual Beta, Leichtgewichtige Architekturen, Geräteunabhängigkeit und Reichhaltige Oberfläche \autocite[Kollmann und Häsel 2007, zitiert nach][137]{Kollmann}. \\
 
 Die Fortführung, der Ausbau und die allzeitliche Zugänglichkeit des Web 2.0 machen das Internet zu der modernen Infosphere, die Floridi 2010 beschrieb. Durch die Möglichkeiten, die Entwicklerinnen und Entwicklern gegeben werden, ist es mit wenig Aufwand möglich, ganze Anwendungen über einen Webbrowser zugänglich zu machen. Insbesondere Anwendungen, welche ursprünglich für native Systeme entwickelt wurden, finden ihren Weg in die Cloud. Welche Vor- und Nachteile dieser Trend hat und ob eine Remigration zu nativen Systemen unter Verwendung moderner Technologien Sinn ergibt, wird in dieser Arbeit näher beleuchtet. 
 
 \newpage
 
 \subsection{Problemstellung}
-Die Entwicklung von Anwendungen für das Web wird eine immer beliebtere Alternative zu nativen Anwendungen, wie beispielsweise installierbare Desktop-Anwendungen. Deutlich erkennbar wird der Trend bei einem Vergleich der \textit{stackoverflow Developer Surveys} aus den Jahren 2015 bis 2021. Betrachtet man nun die Antworten \textit{Full-Stack Developer} und trägt diese als Funktion der Jahre auf, lässt sich folgender Graph erkennen: 
+Die Entwicklung von Anwendungen für das Web wird eine immer beliebtere Alternative zu nativen Anwendungen, wie beispielsweise installierbare Desktopanwendungen. Deutlich erkennbar wird der Trend bei einem Vergleich der stackoverflow Developer Surveys aus den Jahren 2015 bis 2021. Werden nun die Antworten Full-Stack Developer betrachtet und als Funktion der Jahre aufgezeigt, lässt sich folgender Graph erkennen: 
 
 \begin{figure}[H]
 	\centering
 		\caption{Anteil der Full-Stack Entwicklerinnen und Entwickler von 2013 bis 2021}
 	\includegraphics[scale=0.28]{_assets/stackoverflow_fullstack_developers.png} \\
-	Der Graph zeigt den Anteil von Full-Stack Entwicklerinnen und Entwicklern an der Gesamtmenge (siehe Anhang 1.1) der Antworten der jährlichen \textit{stackoverflow Developer Survey} \autocite{stackoverflow_2015,stackoverflow_2016,stackoverflow_2017,stackoverflow_2018,stackoverflow_2019,stackoverflow_2020,stackoverflow_2021}.  
+	Der Graph zeigt den Anteil von Full-Stack Entwicklerinnen und Entwicklern an der Gesamtmenge (siehe Anhang 1.1) der Antworten der jährlichen stackoverflow Developer Survey \autocite{stackoverflow_2015,stackoverflow_2016,stackoverflow_2017,stackoverflow_2018,stackoverflow_2019,stackoverflow_2020,stackoverflow_2021}.  
 \end{figure}
 
-Der Anteil an Full-Stack Entwicklerinnen und Entwicklern nahm im Jahr 2017 stark zu und erreichte einen relativen Wert von 46,3 \%. Der Anteil stieg weiter und erreichte im Jahr 2020 den Höchststand mit 54,9 \%. Im Folgejahr viel der Wert gering. Mit einer zeitweise absoluten Mehrheit von Web-Developern unter den Teilnehmenden der Umfrage lässt sich eine Beliebtheit und Relevanz dieser Technologie schlussfolgern. Die steigende Anzahl zeigt auch, dass Web-Anwendungen über die Jahre an Relevanz gewonnen haben. Hier sei jedoch zu erwähnen, dass Full-Stack Developer nur einen Anteil der Teilnehmenden abbildet, die mit Webtechnologien arbeiten. Berufsbezeichnungen wie Front-End Developer oder Back-End Developer gehören ebenfalls zu den Webentwicklerinnen und -entwicklern, finden jedoch zur Minimierung der Komplexität hier keine Beachtung. \\ 
+Der Anteil an Full-Stack Entwicklerinnen und Entwicklern nahm im Jahr 2017 stark zu und erreichte einen relativen Wert von 46,3 \%. Der Anteil stieg weiter und erreichte im Jahr 2020 den Höchststand mit 54,9 \%. Im Folgejahr viel der Wert gering. Mit einer zeitweise absoluten Mehrheit von Webentwickelnden unter den Teilnehmenden der Umfrage lässt sich eine Beliebtheit und Relevanz dieser Technologie schlussfolgern. Die steigende Anzahl zeigt auch, dass Web-Anwendungen über die Jahre an Relevanz gewonnen haben. Hier sei jedoch zu erwähnen, dass Full-Stack Developer nur einen Anteil der Teilnehmenden abbildet, die mit Webtechnologien arbeiten. Berufsbezeichnungen wie Front-End Developer oder Back-End Developer gehören ebenfalls zu den Webentwicklerinnen und -entwicklern, finden jedoch zur Minimierung der Komplexität hier keine Beachtung. \\ 
 
-Webanwendungen bieten zahlreiche Vorteile gegenüber konventionellen nativen Anwendungen, sowohl aus Sicht der Entwickelnden als auch aus Nutzenden-Sicht. Hier sei beispielsweise die universelle Erreichbarkeit von jedem Endgerät zu erwähnen. Jedoch müssen ebenfalls die Nachteile bedacht werden, sollte sich für die Entwicklung von Software als Webanwendung entschieden werden. Hier kann als Beispiel die Vielzahl von Webbrowsern mit uneinheitlichen Standards erwähnt werden. Entwicklerinnen und Entwickler müssen sich über die Implikationen der Wahl zwischen nativen Anwendungen und Webanwendungen im Klaren sein, um den Entwicklungsaufwand gering und die Nutzungserfahrung positiv zu gestalten. Welche Aspekte Front-End Developer bei dieser Wahl beachten müssen und welche Lösungen moderne Technologien für dieses Problem bieten, wird in dieser Arbeit aufgezeigt. Zentrale Betrachtung findet dabei der Gedanke einer Remigration von Webanwendungen zu nativen Anwendungen vor dem Hintergrund der großen Zahl an Webentwicklerinnen und -entwicklern.
+Webanwendungen bieten zahlreiche Vorteile gegenüber konventionellen nativen Anwendungen, sowohl aus Sicht der Entwickelnden als auch aus der der Nutzenden. Hier sei beispielsweise die universelle Erreichbarkeit von jedem Endgerät zu erwähnen. Jedoch müssen ebenfalls die Nachteile bedacht werden, sollte sich für die Entwicklung von Software als Webanwendung entschieden werden. Hier kann als Beispiel die Vielzahl von Webbrowsern mit uneinheitlichen Standards erwähnt werden. Entwicklerinnen und Entwickler müssen sich über die Implikationen der Wahl zwischen nativen Anwendungen und Webanwendungen im Klaren sein, um den Entwicklungsaufwand gering und die Nutzungserfahrung positiv zu gestalten. Welche Aspekte Front-End Developer bei dieser Wahl beachten müssen und welche Lösungen moderne Technologien für dieses Problem bieten, wird in dieser Arbeit aufgezeigt. Zentrale Betrachtung findet dabei der Gedanke einer Remigration von Webanwendungen zu nativen Anwendungen vor dem Hintergrund der großen Zahl an Webentwicklerinnen und -entwicklern.
 
 \newpage
 
@@ -402,13 +408,13 @@ Die steigende Zahl der Full-Stack Entwickelnden der letzten Jahre zeigt den Beda
 \end{itemize}
 
 Eine Webanwendung ist eine besondere Form einer Website. Eine Website ist im ursprünglichen Ansatz eine Sammlung von HTML-Dokumenten. Diese werden von einem Server über das HTTP-Protokoll an einen Client, meist ein Webbrowser, übertragen. So besteht hier nur eine Richtung des Datenaustauschs: von dem Server zum Client. Eine Webanwendung setzt einen Server voraus, welcher Businesslogik besitzt. Dazu werden Schnittstellen, sogenannte APIs, von dem Client angesprochen. Die APIs eines Webservers ermöglichen eine bidirektionale Kommunikation. So kann eine nutzende Person Daten von dem Server empfangen und an diesen übermitteln. Der Server verarbeitet die Daten und bietet dem Nutzenden eine Webseite mit dynamischem Inhalt an. \\
-Praktische Beispiele von Webanwendungen sind jederzeit im Internet einsehbar, so auch die eingangs erwähnten meistbesuchten Websites im November 2021. Diese umfassen \textit{google.com} auf dem ersten Platz mit 45,41 Milliarden monatlichen Aufrufen, gefolgt von \textit{youtube.com} und \textit{facebook.com} \autocite{Clement}. \\
+Praktische Beispiele von Webanwendungen sind jederzeit im Internet einsehbar, so auch die eingangs erwähnten meistbesuchten Websites im November 2021. Diese umfassen google.com auf dem ersten Platz mit 45,41 Milliarden monatlichen Aufrufen, gefolgt von youtube.com und facebook.com \autocite{Clement}. \\
 
-Ein Frontend einer Webanwendung bedient sich den drei grundsätzlichen Programmier- und Markup-Sprachen des Webs: \textit{HTML}, \textit{CSS} und \textit{JavaScript}. \\
-Es ist möglich, jedoch ineffizient, eine Webanwendung nur mit diesen Technologien zu entwicklen. Moderne Frameworks und Libraries vereinfachen Probleme und Herausforderungen und sorgen so für eine angenehmere Entwicklungserfahrung und eine höhere Entwicklungsgeschwindigkeit. Zu den bekanntesten Technologien gehören unter anderem \textit{React.js}, \textit{Angular} und \textit{Vue.js} \autocite{Clement}. Webframeworks und -libraries vereinfachen den Aufwand der Entwicklung durch die zentrale Nutzung von \textit{JavaScript} und \textit{TypeScript}, wobei \textit{CSS} und \textit{HTML} durch technologiespezifische Aspekte erweitert werden. \\
+Ein Frontend einer Webanwendung bedient sich den drei grundsätzlichen Programmier- und Markup-Sprachen des Webs: HTML, CSS und JavaScript. \\
+Es ist möglich, jedoch ineffizient, eine Webanwendung nur mit diesen Technologien zu entwicklen. Moderne Frameworks und Libraries vereinfachen Probleme und Herausforderungen und sorgen so für eine angenehmere Entwicklungserfahrung und eine höhere Entwicklungsgeschwindigkeit. Zu den bekanntesten Technologien gehören unter anderem React.js, Angular und Vue.js \autocite{Clement}. Webframeworks und -libraries vereinfachen den Aufwand der Entwicklung durch die zentrale Nutzung von JavaScript und TypeScript, wobei CSS und HTML durch technologiespezifische Aspekte erweitert werden. \\
 Ziel der Nutzung von Webframeworks und -libraries ist eine einfache Kommunikation mit einem Backend oder anderen APIs, die Abdeckung einer Vielzahl von Browsern und letztendlich das Rendern von HTML, CSS und clientseitigem JavaScript im Browser der nutzenden Person. Welche Vor- und Nachteile Webanwendungen verglichen mit nativen Technologien mit sich bringen, wird im Folgenden erläutert.
 
-\textcite[27]{Jobe} begründet den rapiden Fortschritt von Webanwendungen mit der Etablierung der Technologie \textit{HTML5}. \textit{HTML5} und die verwandten Technologien \textit{CSS3} und \textit{JavaScript} sorgen dafür, dass Webapps mit nativen Anwendungen in den Punkten Funktionalität, Design, Interaktion und Einsatz von Multimedia konkurrieren können. Als besondere Vorteile erwähnt \textcite[28]{Jobe} die Update-Frequenz und die Entwicklung als Ganzes. Der Autor sieht in der Monetarisierung, verglichen mit nativen Anwendungen, Nachteile, da für das Web keine einheitlichen Monetarisierungsstrategien existieren. Da sich dieser Aspekt seit der Veröffentlichung der Arbeit jedoch weiterentwickelt hat, wird dieser Punkt ebenfalls betrachtet. \\
+\textcite[27]{Jobe} begründet den rapiden Fortschritt von Webanwendungen mit der Etablierung der Technologie HTML5. HTML5 und die verwandten Technologien CSS3 und JavaScript sorgen dafür, dass Webapps mit nativen Anwendungen in den Punkten Funktionalität, Design, Interaktion und Einsatz von Multimedia konkurrieren können. Als besondere Vorteile erwähnt \textcite[28]{Jobe} die Update-Frequenz und die Entwicklung als Ganzes. Der Autor sieht in der Monetarisierung, verglichen mit nativen Anwendungen, Nachteile, da für das Web keine einheitlichen Monetarisierungsstrategien existieren. Da sich dieser Aspekt seit der Veröffentlichung der Arbeit jedoch weiterentwickelt hat, wird dieser Punkt ebenfalls betrachtet. \\
 Nachteile sieht \textcite[28]{Jobe} in den Punkten Schaffen und Konsumieren von Inhalten, User Experience und Performanz. Hierbei ist auffällig, dass die Anzahl der Nachteile überwiegt. Wie kritisch diese Nachteile jedoch sind, und ob die Vorteile dennoch überwiegen, wird im Folgenden unter modernen Gesichtspunkten erläutert. \\
 
 \subsubsection{Update-Frequenz}
@@ -418,7 +424,7 @@ Webanwendungen hingegen können jederzeit aktualisiert werden, ohne dass Nutzend
 
 \subsubsection{Entwicklung}
 
-Wie bereits eingangs erwähnt, bilden die Standards \textit{HTML5}, \textit{CSS3} und \textit{JavaScript} die Grundlage der modernen Webentwicklung. Sollte sich demnach für die Entwicklung der Anwendung als Webapp entschieden werden, sollten die Entwickelnden diese Technologien beherrschen. Für besondere Anwendungsfälle pflegt das \textit{World Wide Web Consortium}, kurz W3C, eine Liste von verfügbaren Standards und Technologien auf dem Weg zur Standardisierung \autocite{W3C}. Im Folgenden wird eine Auswahl von anwendungsbezogenen Webtechnologien gezeigt, welche die Erfahrungen für Nutzende und Entwickelnde verbessern können. Diese sind nach ihren Status durch die W3C aufgeteilt:
+Wie bereits eingangs erwähnt, bilden die Standards HTML5, CSS3 und JavaScript die Grundlage der modernen Webentwicklung. Sollte sich demnach für die Entwicklung der Anwendung als Webapp entschieden werden, sollten die Entwickelnden diese Technologien beherrschen. Für besondere Anwendungsfälle pflegt das World Wide Web Consortium, kurz W3C, eine Liste von verfügbaren Standards und Technologien auf dem Weg zur Standardisierung \autocite{W3C}. Im Folgenden wird eine Auswahl von anwendungsbezogenen Webtechnologien gezeigt, welche die Erfahrungen für Nutzende und Entwickelnde verbessern können. Diese sind nach ihren Status durch die W3C aufgeteilt:
 
 \begin{table}[H]
 	\centering
@@ -438,13 +444,13 @@ Wie bereits eingangs erwähnt, bilden die Standards \textit{HTML5}, \textit{CSS3
 			\hline
 		\end{tabularx}
 	\end{center}	
-	Die aufgelisteten Technologien haben sehr spezielle Anwendungsgebiete. \textit{MathML} ist beispielsweise eine Markup-Sprache zum Erstellen mathematischer Formeln, etwa wie mit \LaTeX. Im Kontext dieser Arbeit sind jedoch native APIs, wie \textit{Accelerometer} oder \textit{Gyroscope}, von besonderer Wichtigkeit, da sie die Fähigkeiten und Einsatzgebiete von Webanwendungen mit denen von nativen Anwendungen verschwimmen lassen \autocite{W3C}.
+	Die aufgelisteten Technologien haben sehr spezielle Anwendungsgebiete. MathML ist beispielsweise eine Markup-Sprache zum Erstellen mathematischer Formeln, etwa wie mit \LaTeX. Im Kontext dieser Arbeit sind jedoch native APIs, wie Accelerometer oder Gyroscope, von besonderer Wichtigkeit, da sie die Fähigkeiten und Einsatzgebiete von Webanwendungen mit denen von nativen Anwendungen verschwimmen lassen \autocite{W3C}.
 \end{table}
 
 Wie die Standards und die als Standard antizipierten Technologien des W3C zeigen, werden Merkmale nativer Software ihren Weg in den Webbrowser finden. Die Abstraktion dieser über HTML, CSS und JavaScript vereinfacht dabei die plattform- und browserunabhängige Entwicklung der gewünschten Software, vorausgesetzt die Browser unterstützen den Standard. \\
 
 Hierbei zeigt sich ein weiterer Gesichtspunkt von Webanwendungen: Browserkompatibilität. Trotz der Versuche des W3C, das Internet und seine Technologien zu standardisieren, sind nicht alle Browser gleich. Unterstütze Technologien und die Umsetzung dieser unterscheiden sich nicht nur von Browser zu Browser, sondern sogar von Version zu Version. Als Beispiel seien hier asynchrone JavaScript-Funktionen zu betrachten. \\
- Asynchronität wird von JavaScript genutzt, um Code mit Zeitversatz auszuführen, wie zum Beispiel API-Abfragen. Da ungewiss ist, wann die Antwort von der API zurückgegeben wird, wird die Abfrage in eine asynchrone Funktion geschrieben, gekennzeichnet durch die Schlüsselworte \texttt{asnyc} und \texttt{await}. Da diese Abfrage ein \texttt{Promise} zurückgibt, ermöglicht eine asynchrone Funktion das Behandeln der \texttt{Promises} als synchrones Objekt. Die Unterstützung dieser Funktionalität kann nun über beispielsweise \textit{CanIUse} überprüft werden: 
+ Asynchronität wird von JavaScript genutzt, um Code mit Zeitversatz auszuführen, wie zum Beispiel API-Abfragen. Da ungewiss ist, wann die Antwort von der API zurückgegeben wird, wird die Abfrage in eine asynchrone Funktion geschrieben, gekennzeichnet durch die Schlüsselworte \texttt{asnyc} und \texttt{await}. Da diese Abfrage ein \texttt{Promise} zurückgibt, ermöglicht eine asynchrone Funktion das Behandeln der \texttt{Promises} als synchrones Objekt. Die Unterstützung dieser Funktionalität kann nun über beispielsweise CanIUse überprüft werden: 
  
  \begin{table}[H]
  	\centering
@@ -499,24 +505,24 @@ Wird nun der gestalterische Aspekt über CSS einer Webanwendung betrachtet, werd
  			\hline
  		\end{tabularx}
  	\end{center}
-	Dieser Anwendungsfall zeigt, wie einige Browser, in diesem Fall \textit{Edge} und \textit{Chrome}, Standards nur teilweise unterstützen \autocite{CSS_Masks}. Für Browser mit partieller Unterstützung muss \textit{WebKit} als HTML-Rendering-Engine gesondert angesprochen werden.
+	Dieser Anwendungsfall zeigt, wie einige Browser, in diesem Fall Edge und Chrome, Standards nur teilweise unterstützen \autocite{CSS_Masks}. Für Browser mit partieller Unterstützung muss WebKit als HTML-Rendering-Engine gesondert angesprochen werden.
  \end{table}
 
-Sollten während der Entwicklung Technologien genutzt werden, für welche die angestrebten Browser keinen nativen Support bieten, muss eine Alternative über sogenannte \textit{Polyfills} gefunden werden. Polyfills sind Code-Bausteine, welche moderne HTML-, CSS- oder JavaScript-Funktionalitäten über Umwege für Browser anbieten, welche diese nativ nicht unterstützen. Der Entwickler oder die Entwicklerin kann diese Polyfills in den geschriebenen Code einarbeiten \autocite{Polyfills}. Dies bedeutet jedoch Mehraufwand in der Entwicklung, sollte die Zielgruppe einen Browser nutzen, welche die gewünschten Technologien nicht unterstützt. \\
+Sollten während der Entwicklung Technologien genutzt werden, für welche die angestrebten Browser keinen nativen Support bieten, muss eine Alternative über sogenannte Polyfills gefunden werden. Polyfills sind Code-Bausteine, welche moderne HTML-, CSS- oder JavaScript-Funktionalitäten über Umwege für Browser anbieten, welche diese nativ nicht unterstützen. Der Entwickler oder die Entwicklerin kann diese Polyfills in den geschriebenen Code einarbeiten \autocite{Polyfills}. Dies bedeutet jedoch Mehraufwand in der Entwicklung, sollte die Zielgruppe einen Browser nutzen, welche die gewünschten Technologien nicht unterstützt. \\
 
-Eine Abstraktion der Entwicklung über Frameworks und Libraries, wie beispielsweise React, Angular oder Vue.js, vereinfacht die Entwicklung. Die Technologien setzten dabei auf JavaScript oder TypeScript, sowie wahlweise ein CSS-Präprozessor. React beispielsweise gibt an, dass alle modernen Browser unterstützt werden. Lediglich ältere Browserversionen benötigen Polyfills. Die Dokumentation von React weißt jedoch explizit darauf hin, dass Browser ohne Unterstützung für \textit{ES5} nicht von React unterstützt werden, so auch Internet Explorer \autocite{ReactDOM}. \\
+Eine Abstraktion der Entwicklung über Frameworks und Libraries, wie beispielsweise React, Angular oder Vue.js, vereinfacht die Entwicklung. Die Technologien setzten dabei auf JavaScript oder TypeScript, sowie wahlweise ein CSS-Präprozessor. React beispielsweise gibt an, dass alle modernen Browser unterstützt werden. Lediglich ältere Browserversionen benötigen Polyfills. Die Dokumentation von React weißt jedoch explizit darauf hin, dass Browser ohne Unterstützung für ES5 nicht von React unterstützt werden, so auch Internet Explorer \autocite{ReactDOM}. \\
 
 Ein abschließender Vorteil der Webentwicklung ist die Plattformunanhängigkeit. Es wird keine properietäre Soft- oder Hardware für die Entwicklung benötigt. Emulationen und virtuelle Maschinen zeigen das Verhalten der Anwendung unter bestimmten Umständen und sind in der Regel kostenfrei. \\
 
 \subsubsection{Monetarisierung}
-Der Aspekt der Monetarisierung ist für Entwickelnde ein oftmals kritisch zu betrachtender Punkt. Das Handhaben von monetären Mitteln und den dazugehörenden empfindlichen Daten kann abschreckend wirken. \textcite[28]{Jobe} gibt an, dass für die Monetarisierung von Webanwendungen keine klare und einheitliche Strategie vorliegt. Dieser Punkt hat sich jedoch seit der Veröffentlichung von \textcite{Jobe}s Arbeit entwickelt. Anbieter für Zahlungsdienstleistungen haben sich auf Internet-Transaktionen und das Bereitstellen von APIs spezialisiert. Hier sei einer der Marktführer besonders hervorzuheben: \textit{Stripe}. \\
+Der Aspekt der Monetarisierung ist für Entwickelnde ein oftmals kritisch zu betrachtender Punkt. Das Handhaben von monetären Mitteln und den dazugehörenden empfindlichen Daten kann abschreckend wirken. \textcite[28]{Jobe} gibt an, dass für die Monetarisierung von Webanwendungen keine klare und einheitliche Strategie vorliegt. Dieser Punkt hat sich jedoch seit der Veröffentlichung von \textcite{Jobe}s Arbeit entwickelt. Anbieter für Zahlungsdienstleistungen haben sich auf Internet-Transaktionen und das Bereitstellen von APIs spezialisiert. Hier sei einer der Marktführer besonders hervorzuheben: Stripe. \\
 Stripe ist ein Anbieter von Transaktionsverwaltung und bietet APIs für eine Integration in die Anwendung an. Sämtliche Businesslogik wird seitens Stripe serverseitig gehandhabt, sodass keine zusätzlichen datenschutzrelevanten Informationen von den Entwickelnden berücksichtigt werden müssen. Den Nutzenden wird dann über Stripe die Wahl gelassen, welche der gängigen Zahlungsmethoden genutzt werden soll \autocite{Stripe}. Dieser Ansatz ist für den Verkauf von Waren und Dienstleistungen besonders interessant. Soll die Webanwendungen jedoch auf passive Art monetarisiert werden, bietet sich das Schalten von Werbung an. \\
 
 Die Monetarisierung von Webanwendung ist nach \textcite[28]{Jobe} noch immer uneinheitlich, jedoch ist dies auf die Vielzahl der Anwendungsfälle zurückzuführen.
 
 \subsubsection{Schaffen und Konsumieren von Inhalten}
 
-Das Schaffen und Konsumieren von Inhalten bestimmt den Alltag von Nutzenden von Webanwendungen. \textcite[28]{Jobe} sieht insbesondere mobile Webanwendungen als weniger geeignet für das Schaffen von Inhalten, sondern mehr für das Konsumieren. Dies liegt vermutlich in der oftmals kleinen Größe des Bildschirms von Smartphones begründet. Werde jedoch Webanwendungen in einem Desktop-Browser betrachtet, können diese durchaus im Hinblick auf das Schaffen von Inhalten mit nativen Anwendungen konkurrieren. Hier sei beispielsweise \textit{Office365}, die \textit{Google Docs Suite} oder auch \textit{vscode.dev} zu erwähnen. Anhand dieser Software ist die Migration von nativen Systemen hin zu Webanwendungen erkennbar. \textit{Office365} beispielsweise verfügt über alle Funktionalitäten der nativen Version, kommt jedoch ohne Installation von zusätzlicher Software aus. \\
+Das Schaffen und Konsumieren von Inhalten bestimmt den Alltag von Nutzenden von Webanwendungen. \textcite[28]{Jobe} sieht insbesondere mobile Webanwendungen als weniger geeignet für das Schaffen von Inhalten, sondern mehr für das Konsumieren. Dies liegt vermutlich in der oftmals kleinen Größe des Bildschirms von Smartphones begründet. Werde jedoch Webanwendungen in einem Desktop-Browser betrachtet, können diese durchaus im Hinblick auf das Schaffen von Inhalten mit nativen Anwendungen konkurrieren. Hier sei beispielsweise Office365, die Google Docs Suite oder auch vscode.dev zu erwähnen. Anhand dieser Software ist die Migration von nativen Systemen hin zu Webanwendungen erkennbar. Office365 beispielsweise verfügt über alle Funktionalitäten der nativen Version, kommt jedoch ohne Installation von zusätzlicher Software aus. \\
 
 Das Konsumieren von Inhalten ist jedoch gesondert zu betrachten. \textcite[28]{Jobe} gibt an, dass mobile Webanwendungen im selben Maße für den Konsum von Inhalten geeignet sind, wie native Anwendungen. Bezogen auf diese Arbeit ist jedoch ein konkreter Vergleich von Vorteil. Hierzu wird sich einer Statistik über die Nutzung der Plattform facebook bedient, da facebook eine stetig steigende Zahl von Nutzenden aufweist \autocite{Statista_Facebook}. Ziel der Statistik im Zusammenhang mit dieser Arbeit ist die Beantwortung der Frage: 
 \begin{quote}
@@ -569,7 +575,7 @@ Web Notifications erlauben die Interaktion mit dem Nutzenden über die native Be
  	Die für native Anwendungen selbstverständliche Funktion, dem Nutzenden Push-Mitteilungen zukommen zu lassen, gestaltet sich für Webanwendungen eher schwierig. Begründet liegt dies in der mangelhaften Unterstützung insbesondere durch mobile Browser der Betriebssysteme iOS und Android \autocite{Web_Notifications}. 
  \end{table}
 
-Prinzipiell ist diese Annäherung von Webanwendungen an Funktionalitäten nativer Anwendungen als positiver Aspekt für Webanwendungen zu sehen, jedoch können insbesondere Smartphones nicht einheitlich von diesem Feature profitieren. Um diese Funktion möglichst vorteilhaft zu nutzen, muss die Hard- und Software der Zielgruppe genau bestimmt werden. Sollte die Zielgruppe überwiegend Smartphones mit dem Browser \textit{Safari on iOS} nutzen, muss aufgrund von nicht vorhandenen Polyfills gänzlich auf dieses Feature der Webanwendung verzichtet werden. \\
+Prinzipiell ist diese Annäherung von Webanwendungen an Funktionalitäten nativer Anwendungen als positiver Aspekt für Webanwendungen zu sehen, jedoch können insbesondere Smartphones nicht einheitlich von diesem Feature profitieren. Um diese Funktion möglichst vorteilhaft zu nutzen, muss die Hard- und Software der Zielgruppe genau bestimmt werden. Sollte die Zielgruppe überwiegend Smartphones mit dem Browser Safari on iOS nutzen, muss aufgrund von nicht vorhandenen Polyfills gänzlich auf dieses Feature der Webanwendung verzichtet werden. \\
 
 Als weiterer Aspekt einer guten Nutzungserfahrung kann die Integration eines Kontextmenüs in die Webanwendung gesehen werden. Kontextmenüs sind ein natives Feature von vielen Desktop-Betriebssystemen und spiegeln ein gelerntes Verhalten des Nutzenden wieder. Eine Integration des Menüs in die Webanwendungen lässt die Grenzen zwischen nativen Anwendungen und Webanwendungen weiterhin verschwimmen. Auf diese Weise müssen Nutzende im Produktiveinsatz der Webanwendung keine neuen Arbeitsschritte lernen und profitieren von dem bereits gelernten Verhalten. Jedoch ist auch dieser Punkt uneinheitlich in den gängigen Webbrowsern integriert:
 
@@ -609,7 +615,7 @@ Die Performanz von Webanwendungen bezeichnet \textcite[28]{Jobe} als abhängig v
 Die Performanz einer Webanwendung ist im Wesentlichen durch die Performanz des genutzten Webbrowsers und nicht zuletzt durch die verfügbare Internetverbindung beschränkt. Somit scheint der Vergleich von nativen Anwendungen mit Webanwendungen in Hinblick auf die Leistungsfähigkeit nicht adäquat. Um dennoch den Evaluierungsprozess der Entwicklung anzudeuten, wird im Folgenden die Performanz der Rendering-Engines von Google Chrome und Safari verglichen. \\ 
 Google Chrome nutzt für die Verarbeitung von JavaScript die sogenannte V8-Engine \autocite{v8_Engine}. Zur Darstellung von HTML nutzt Chrome ein Derivat der WebKit-Engine, die sogenannte Blink-Engine \autocite{Blink_Rendering}. \\
 Safari hingegen nutzt für HTML und JavaScript die bereits erwähnte WebKit-Engine \autocite{WebKit}. \\
-Um die Performanz der Browser zu testen und zu vergleichen, wird die Webanwendung \textit{speedometer} von \textit{browserbench} genutzt. Diese misst die Responsivität von einfachen Webanwendungen in dem genutzten Browser. Unter anderem nutzt die Webanwendungen \textit{Vue.js}, \textit{React}, \textit{Angular}. \textit{jQuery} und \textit{VanillaJS}. \\
+Um die Performanz der Browser zu testen und zu vergleichen, wird die Webanwendung speedometer von browserbench genutzt. Diese misst die Responsivität von einfachen Webanwendungen in dem genutzten Browser. Unter anderem nutzt die Webanwendungen Vue.js, React, Angular. jQuery und VanillaJS. \\
 Als Ergebnis des Tests erreicht Chrome durchschnittlich 104,9 Durchläufe pro Minute bei einer Standardabweichung von 3,39 über insgesamt 10 Versuchsdurchläufen. Safari hingegen erreicht durchschnittlich 129,1 Durchläufe pro Minute bei einer Standardabweichung von 4,25 über ebenfalls 10 Versuchsdurchläufe (siehe Anhang 1.3). Durchgeführt wird der Test auf einem MacBook Pro 2020 (siehe Anhang 1.2). \\
 Als Resultat des Tests ist Safari performanter als Chrome. Diese Aussage ist jedoch nicht universell gültig, da hier lediglich ein Test genutzt wird, welcher auf lediglich einem Gerät durchgeführt wird. \\
 
@@ -719,7 +725,7 @@ Die stellvertretend betrachtete Cache-Performanz von nativen Smartphone-Anwendun
 \subsection{Cross-Plattform}
 
 Die Entwicklung von Cross-Plattform-Anwendungen ist kein neues Phänomen. Der Ansatz von Cross-Kompilierung erlaubt Entwickelnden, die gewünschte Anwendung in einer kompilierten Programmiersprache zu entwicklen und diese unabhängig für unterschiedliche Plattformen zu kompilieren. Dies reduziert den Aufwand, den kompilierten plattform-nativen Code individuell zu entwickeln \autocite[7]{Xamarin}. \\
-Prinzipiell besitzen CP-Anwendungen vergleichbare Vorteile gegenüber Webanwendungen, wie sie native Anwendungen gegenüber Webanwendungen aufweisen. Begründet liegt dies in dem bereits erwähnten kompilierten nativen Code für die jeweilige Plattform. Werden jedoch CP-Anwendungen mit nativ Entwickelten Anwendungen verglichen, werden Unterschiede deutlich. \textcite[7]{Xamarin} erwähnt eine geringe Performanz bei einem Vergleich mit nativen Anwendungen. Dies sieht der Autor in der Menge von Libraries begründet, welche in dem Speicher abgelegt werden müssen. Dieser Vergleich hängt jedoch stark von dem verwendetem CP-Framework ab, wie \textcite[134]{CP-mobile} bei dem Vergleich der Performanz von nativen mobilen Anwendungen mit Anwendungen des CP-Frameworks \textit{PhoneGap} angeben. \\
+Prinzipiell besitzen CP-Anwendungen vergleichbare Vorteile gegenüber Webanwendungen, wie sie native Anwendungen gegenüber Webanwendungen aufweisen. Begründet liegt dies in dem bereits erwähnten kompilierten nativen Code für die jeweilige Plattform. Werden jedoch CP-Anwendungen mit nativ Entwickelten Anwendungen verglichen, werden Unterschiede deutlich. \textcite[7]{Xamarin} erwähnt eine geringe Performanz bei einem Vergleich mit nativen Anwendungen. Dies sieht der Autor in der Menge von Libraries begründet, welche in dem Speicher abgelegt werden müssen. Dieser Vergleich hängt jedoch stark von dem verwendetem CP-Framework ab, wie \textcite[134]{CP-mobile} bei dem Vergleich der Performanz von nativen mobilen Anwendungen mit Anwendungen des CP-Frameworks PhoneGap angeben. \\
 Wie bei jeder Entwicklung müssen sich Entwickelnde zunächst über die Zielgruppe informieren. Die genutzte Hard- und Software der Zielgruppe entscheidet maßgeblich über die Wahl des Frameworks und somit auch über die zu nutzende Programmiersprache. Die Betrachtung der hier aufgeführten Frameworks wird vor dem Hintergrund eines Web-Entwickelnden mit einer Expertise in dem Web-Framework React durchgeführt. Dieser Hintergrund wird im Praxis-Teil dieser Arbeit erneut aufgegriffen, wenn die Frameworks zur Entwicklung von spezifischen Anwendungen genutzt werden.
 
 \subsubsection{Unterstützte Plattformen}
@@ -737,7 +743,7 @@ Als Resultat dessen weisen Anwendungen, welche in React Native entwickelt werden
 
 \paragraph{Electron}
 
-Electron ist ein Framework, mit welchem Entwickelnde native Desktop-Anwendungen mithilfe von Webtechnologien entwickeln können. Zu den Ziel-Betriebssystemen zählen MacOS, Windows und Linux. Bekannte Programme, welche Electron nutzen, sind beispielsweise Visual Studio Code, Microsoft Teams oder WhatsApp \autocite{Electron.js}. Electron basiert auf Chromium und Node.js und vereint diese Technologien in einem Framework \autocite[Jasim 2017, zitiert nach][572]{Electron_Kredpattanakul}. \\
+Electron ist ein Framework, mit welchem Entwickelnde native Desktopanwendungen mithilfe von Webtechnologien entwickeln können. Zu den Ziel-Betriebssystemen zählen MacOS, Windows und Linux. Bekannte Programme, welche Electron nutzen, sind beispielsweise Visual Studio Code, Microsoft Teams oder WhatsApp \autocite{Electron.js}. Electron basiert auf Chromium und Node.js und vereint diese Technologien in einem Framework \autocite[Jasim 2017, zitiert nach][572]{Electron_Kredpattanakul}. \\
 
 \paragraph{Flutter}
 
@@ -747,7 +753,7 @@ Flutter sticht als Framework in dieser Aufzählung etwas heraus. Primär liegt d
 
 \section{Praktischer Vergleich von Cross-Plattform-Lösungen}
 
-Die erarbeitete Theorie wird an Beispielen von hierfür entwickelten Anwendungen gezeigt. Dazu werden die bereits beleuchteten Cross-Plattform-Frameworks React Native, Electron und Flutter genutzt. Hierbei ist zu erwähnen, dass sich der Hintergrund des Autors fast ausschließlich auf die Entwicklung von Webanwendungen bezieht. Sämtliches Wissen über die Frameworks wird sich speziell für diese Arbeit zugelegt. Dabei spielt Flutter durch die Dart-Programmiersprache eine besondere Rolle, da hierfür die Grundlagen des Frameworks und der Sprache erlernt werden müssen.
+Die erarbeitete Theorie wird an Beispielen von hierfür entwickelten Anwendungen gezeigt. Dazu werden die bereits beleuchteten CP-Frameworks React Native, Electron und Flutter genutzt. Hierbei ist zu erwähnen, dass sich der Hintergrund des Autors fast ausschließlich auf die Entwicklung von Webanwendungen bezieht. Sämtliches Wissen über die Frameworks wird sich speziell für diese Arbeit zugelegt. Dabei spielt Flutter durch die Programmiersprache Dart eine besondere Rolle, da hierfür die Grundlagen des Frameworks und der Sprache erlernt werden müssen.
 
 \subsection{Zielvorgabe}
 
@@ -832,7 +838,7 @@ Als Nachteil muss hier die fehlende Kompatibilität mit einem iOS-Simulator gena
 Die Integration des Gyroskop-Sensors stellte ebenfalls kein Hindernis dar. Sowohl auf der simulierten Android-Plattform, als auch auf dem physischen iOS-Smartphone verhält sich die Funktion wie erwartet. Da der Sensor nur bei einer Bewegung des Gerätes auslöst, ist eine bildliche Darstellung hier nicht möglich. Die Einbindung des Sensors in den Code erfolgte mit wenigen Zeilen zum Setzen des States und der Event-Subscription. Danach ließen sich die Werte der Neigung einfach auslesen. Es war kein plattformspezifischer Code nötig. \\
 Auch hier wird der iOS-Simulator nicht unterstützt, was nachteilig zu betrachten ist \autocite{Expo_gyroscope}. \\
 
-Der Button als natives UI-Element wurde von beiden Plattformen problemlos erkannt und als solcher mit der plattformanhängigen Designsprache angezeigt (siehe Anhang 2.2). Die Einbindung der Push Mitteilung erwies sich hingegen als Herausforderung. Da die Push Mitteilungen in Produktivsystemen von Backend-Systemen, wie beispielsweise \textit{Firebase}, kommen, musste für dieses Beispiel ein Umweg über Expos lokales Benachrichtigungssystem genutzt werden. Dies benötigte zusätzlichen Code, weshalb die Funktion im Umfang wuchs, verglichen mit den anderen Funktionen. Weiterhin muss plattformspezifischer Code eingebunden werden, da React Native die Notification-Funktion nicht über beide Plattformen abstrahiert. Zuletzt muss Erwähnung finden, dass \texttt{expo-notifications} lediglich auf physikalischen Geräten funktioniert, weshalb Android in diesem Beispiel keine Betrachtung finden kann (siehe Anhang 2.3). \\
+Der Button als natives UI-Element wurde von beiden Plattformen problemlos erkannt und als solcher mit der plattformanhängigen Designsprache angezeigt (siehe Anhang 2.2). Die Einbindung der Push Mitteilung erwies sich hingegen als Herausforderung. Da die Push Mitteilungen in Produktivsystemen von Backend-Systemen, wie beispielsweise Firebase, kommen, musste für dieses Beispiel ein Umweg über Expos lokales Benachrichtigungssystem genutzt werden. Dies benötigte zusätzlichen Code, weshalb die Funktion im Umfang wuchs, verglichen mit den anderen Funktionen. Weiterhin muss plattformspezifischer Code eingebunden werden, da React Native die Notification-Funktion nicht über beide Plattformen abstrahiert. Zuletzt muss Erwähnung finden, dass \texttt{expo-notifications} lediglich auf physikalischen Geräten funktioniert, weshalb Android in diesem Beispiel keine Betrachtung finden kann (siehe Anhang 2.3). \\
 
 Zuletzt bleibt die Betrachtung des Viewports und seiner Abstraktion. Wie auf den Screenshots zu erkennen (siehe Anhang 2.2 und 2.3), geht React Native von einem rechteckigen Viewport aus. Als Folge dessen werden die abgerundeten Ecken beider Plattformen und die Kameraaussparung des iPhones nicht von dem Style-Attribut \texttt{borderStyle} berücksichtigt.
 
@@ -902,15 +908,75 @@ Abschließend ist im Vergleich mit React Native und Electron die positive Entwic
 
 \section{Diskussion}
 
-Gegenstand der Diskussion dieser Arbeit ist die Beantwortung der zentralen Frage, ob Entwickelnde eine Migration existierender Webanwendungen zu nativen Anwendungen anstreben sollten. Dazu werden zunächst die praktischen Umsetzungen ausgewertet. Dies erfolgt vor dem Hintergrund eines Webentwickelnden. Darauf folgt in der Limitation die Erwähnung der Aspekte und Kriterien, welche in dieser Arbeit keine Betrachtung fanden. In dem Ausblick wird der Versuch einer Vorhersage über die Relevanz von Webanwendungen, nativen Anwendungen und Cross-Platform-Frameworks unternommen.
+Gegenstand der Diskussion dieser Arbeit ist die Beantwortung der zentralen Frage, ob Entwickelnde eine Migration existierender Webanwendungen zu nativen Anwendungen anstreben sollten. Dazu werden zunächst die praktischen Umsetzungen ausgewertet. Dies erfolgt vor dem Hintergrund eines Webentwickelnden. Darauf folgt in der Limitation die Erwähnung der Aspekte und Kriterien, welche in dieser Arbeit keine Betrachtung fanden. In dem Ausblick werden Vorschläge zur Vertiefung des Themas genannt.
 
 \subsection{Auswertung der Umsetzungen}
 
+Die Umsetzungen der Anforderungen in React Native, Electron und Flutter gestalteten sich als äußerst unterschiedlich, sowohl aus Sicht der Entwicklung als auch aus Sicht eines Nutzenden. Der Bekannte \texttt{JSX}-Syntax in Kombination mit JavaScript fand in React Native und Electron Anwendung. Dies ist auf die Wahl von React als Frontend-Framework für die Electronanwendungen zurückzuführen. React Native nutzt wie bereits erwähnt über eine interne Bridge native UI-Komponenten, um die Nutzungserfahrung möglichst einheitlich mit dem Zielsystem zu halten. Electron hingegen setzt auf HTML-Elemente, welche bei Bedarf manuell dem Zielsystem entsprechen gestyled werden können. Alle Aspekte der Entwicklung betrachtet lässt sich jedoch sagen, dass die Entwicklung von React Native und Electron viele Gemeinsamkeiten aufweisen und einen leichten Einstieg bieten, sollte ein Hintergrund in der Webentwicklung vorliegen. Es muss jedoch einmal mehr unterstrichen werden, dass die Wahl der Technologie primär von der Zielgruppe und den Zielsystemen abhängt. \\
+Flutter sticht in diesem Vergleich aus Sicht des Entwickelnden besonders heraus. Hier sei Dart als Programmiersprache besonders hervorzuheben. Anders als die bereits genannten Frameworks, müssen Entwickelnde für die Arbeit mit Flutter eine neue Programmiersprache mit einem neuem Aufbau von UI-Elementen lernen. Die zweigartig verschachtelten Widgets lassen sich nicht mit dem funktionalen Komponenten von React vergleichen. Das Styling erfolgt ebenfalls über Widgets, nicht über CSS. Positiv zu erwähnen ist jedoch die Designsprache Material von Google, welche Komponenten für React und Widgets für Flutter anbietet, sodass sich Entwickelnde auf die Programmierung konzentrieren können, ohne die Komponenten für die Designsprache entwickeln zu müssen. \\
+
+Die Werkzeuge der Cross-Plattform-Frameworks sind aus Sicht eines Entwickelnden ebenfalls besonders hervorzuheben. React Native nutzt als Abstraktionsebene \texttt{Expo}. Mit Expos CLI-Tool lassen sich schnell React Native Projekte aufsetzten und externe Pakete verwalten. Weiterhin kann mithilfe von Expo die entwickelte Anwendung schnell auf physischen und simulierten Plattformen getestet werden, welche die Anwendung bei Änderungen in der Codebasis in kurzer Zeit neu startet. \\
+Electron verfügt über einen CLI-Befehl zum Ausführen der Anwendung, dieser muss jedoch manuell in die \texttt{package.json} und die statische JavaScript-Datei des Projekts, in diesem fall React, eingefügt werden. \\
+Flutter verfügt im Vergleich über das umfangreichste CLI-Werkzeug. Der Befehl \texttt{flutter} hilft bei der Installation des Frameworks, bei der Einrichtung von virtuellen und physischen Geräten und bei Fehlern während der Runtime. \\
+
+Enttäuschend ist jedoch die realistische Unterstützung der Plattformen von Flutter. Angepriesen wird Flutter als eine Codebasis für jeden Bildschirm auf jedem Gerät. Die Realität weicht davon jedoch ab. Als Beispiel sei hier die Einbindung von nativen Benachrichtigungen erwähnt, welche eine Konfiguration des kompilierten Quellcodes benötigt. Weiterhin braucht Flutter für das Exportieren der kompilierten Desktop-Anwendungen eingerichtete Umgebungen auf den nativen Zielsystemen Windows, Linux und MacOS. Zum Testen der exportierten Anwendungen wäre dies über Virtualisierung kein Hindernis, doch ist die Einrichtung einer Entwicklungsumgebung auf virtualisierten Plattformen ein negativer Einfluss auf die Entwicklungserfahrung. Daher ist Flutter als Cross-Plattform-Framework im Kontext dieser Arbeit die schlechteste Alternative zu nativer Entwicklung vor dem Hintergrund von Webentwickelnden. \\
+
+Die Unterstützung der in den Anforderungen beschriebenen Funktionalitäten wird im Folgenden tabellarisch zusammengefasst:
+
+\begin{table}[H]
+ 	\centering
+ 	\caption{Unterstützungen der Funktionalitäten durch das CP-Framework auf den Zielplattformen}
+ 	\begin{center}
+ 		\begin{tabularx}{\linewidth}{| Y || Y | Y | Y | Y |}
+ 			\hline
+ 			\textbf{} & \textbf{Batterie-Status} & \textbf{Gyroskop} & \textbf{native Mitteilungen} & \textbf{Erkennung irregulärer Viewports} \\
+ 			\hline \hline
+			\textbf{MacOS} & Electron (bedingt) & \xmark & Electron & \xmark \\
+ 			\hline
+ 			\textbf{Windows} & \xmark & \xmark & Electron & \xmark \\
+ 			\hline
+ 			\textbf{Linux} & \xmark & \xmark & Electron & \xmark \\
+ 			\hline
+ 			\textbf{iOS} & React Native, Flutter & React Native, Flutter & React Native & \xmark \\
+ 			\hline
+ 			\textbf{Android} & React Native, Flutter & React Native, Flutter & React Native & \xmark \\
+ 			\hline
+ 			\textbf{Web} & Flutter & \xmark & \xmark & \xmark \\
+ 			\hline
+ 		\end{tabularx}
+ 	\end{center}
+	Ein ernüchterndes Ergebnis, insbesondere aufgrund der Disqualifikationen von Flutter aus den bereits genannten Gründen. Überraschend ist, dass keines der Frameworks die irregulären Viewports der Plattformen erkannt und abstrahiert hat.
+\end{table}
+
+\newpage
+
 \subsection{Limitation}
+Während der theoretischen Ausarbeitung und der praktischen Umsetzung der Anwendungen sind Limitationen zutage getreten, welchen bei der Wahl der Methodik nicht genug Aufmerksamkeit gewidmet wurde. So sind einige Quellen kritisch zu sehen, da es sich dabei um Websites von Unternehmen handelt. Diese stellen ihr Produkt oder ihre Dienstleistung logischerweise positiv und nicht reflektiert dar. Als Beispiel seine hier die Websites von Flutter, Apple oder Electron genannt. \\
+Die Umsetzung ist durch den Aufwand und die Kosten der Einrichtung der physischen Plattformen für Linux und Android limitiert. Insbesondere der Vergleich der simulierten Android-Plattform mit der physischen iOS-Plattform hatte keinen Einfluss auf das Testergebnis, sollte aber dennoch aufgrund ungleicher Voraussetzungen kritisiert werden. \\
+Der Vergleich von Webanwendungen mit nativen Smartphone-Anwendungen wird durch diverse Quellen gestützt, welche auch in der theoretischen Ausarbeitung dieser Arbeit erwähnt werden. Dieser Vergleich wird auf native Desktop-Anwendungen übertragen, ohne dass dafür ausreichende Belege erwähnt werden. Die Annahme, dass native Desktop-Anwendungen eine ähnliche Performanz, verglichen mit Webanwendungen, aufweisen, kann Gegenstand weiterer Ausarbeitungen sein. \\
+Zuletzt bleibt zu erwähnen, dass diese Arbeit ausgewählte Fakten sammelt und daraus eine subjektive Empfehlung generiert. Um diese Empfehlung unangreifbar machen zu können, bedarf es weiterer Aspekte und Grundlagenforschung, welche hier nicht aufgefasst wird.
 
 \subsection{Ausblick}
+Möglichkeiten der Entwicklung von Cross-Plattform-Anwendungen gewinnen mehr und mehr an Relevanz, insbesondere für kleine Teams von Entwickelnden. Eine Prüfung und ein Vergleich unbekannter Frameworks währe daher ratsam. Diese unbekannten Frameworks können die hier angesprochenen Defizite von React Native, Electron und Flutter möglicherweise lösen. \\
+Sollten insbesondere Unternehmen über die Kapazitäten verfügen, native und Webanwendungen für alle Plattformen gleichermaßen anzubieten, wäre eine Evaluierung der Sinnhaftigkeit von Cross-Plattform-Frameworks durchaus ratsam. \\
+Webbrowser unterstützen zunehmend Zugriffe auf native Funktionalitäten der Plattformen. Angenommen, Performanz und Funktionsumfang von Webbrowsern wird zukünftig den Fähigkeiten nativer Software entsprechen. Wäre die Entwicklung nativer Software weiterhin relevant? Werden JavaScript und TypeScript irgendwann C\#, C++, Swift, .NET etc. ablösen?
+
+\newpage
 
 \section{Ist eine Migration von Webanwendungen zu nativen Anwendungen sinnvoll? Ein Fazit}
+Die Softwareentwicklung als Profession ist im ständigen Wandel. Vor dem Internet als solches waren native Anwendungen die einzige Möglichkeit, Software zu entwickeln. Der Eingangs erwähnte Wandel zum Web 2.0 sorgte für allgegenwärtige Software, welche ohne Installation oder Plattformabhängigkeit genutzt werden konnte. Durch Smartphones und Tablets waren Nutzende nicht länger auf einen stationären Desktop-Computer angewiesen. Der Fokus von Entwickelnden verlagerte sich auf den Webbrowser. Doch Webbrowser beschneiden die Möglichkeiten von Software durch uneinheitliche Implementierungen der Ressourcen des Hostsystems. \\
+Dieser Bachelorarbeit liegt die Frage zugrunde, ob die Chancen einer Migration von Webanwendungen zu nativen Anwendungen die Risiken überwiegen. Dazu wurden zunächst die gängigen Ansätze der Entwicklung von Anwendungen beleuchtet, wozu Webanwendungen, native Anwendungen und Cross-Plattform-Anwendungen zählen. Beispielhaft wurden die Frameworks React Native, Electron und Flutter vor dem Hintergrund eines Webentwickelnden näher beleuchtet. Sie bieten eine einheitliche Code-Basis für eine Vielzahl von Zielplattformen, weshalb sie hier als naheliegende Alternative zur Entwicklung nativer Anwendungen für Webentwickelnde dargestellt werden. Dieser Ansatz ist verlockend, insbesondere vor dem Hintergrund, dass Electron und ReactNative auf Webtechnologien zurückgreifen. Daher stellt sich die Frage: 
+
+\begin{quote}
+	Ist eine Migration von Webanwendungen zu nativen Anwendungen sinnvoll?	
+\end{quote}
+
+Auf diese Frage gibt es keine befriedigende absolute Antwort, ihre Betrachtung ist kontextabhängig. Primär wird davon ausgegangen, dass bereits eine Webanwendung existiert und somit eine gewisse Expertise auf diesem Gebiet aufgebaut wurde. Aufbauend darauf müssen die Bedürfnisse der Zielgruppe und ihre Plattformen identifiziert werden. Greift die Zielgruppe primär über mobile Endgeräte auf die Webanwendung zu und profitiert diese von möglichen Push Mitteilungen, so kann die Entwicklung von nativen Anwendungen für die mobilen Systeme durchaus profitabel sein. Besteht das Team von Entwickelnden aus mehreren Personen, kann eine Schulung einzelner zu nativen Entwicklern für die Plattformen ebenfalls von Vorteil sein. Ist das Entwicklungsteam eher klein und existieren keine Kapazitäten zum Umschulen der Webentwickelnden, ist das Cross-Plattform-Framework React Native ein vielversprechender Ansatz. Diese Aussagen treffen ebenso auf native Desktop-Anwendungen zu. Hier können Entwickelnde auf das Framework Electron zurückgreifen, sollte sich die Zielgruppe auf Desktops beschränken. \\
+Native Anwendungen sind prinzipiell leistungsfähiger als Webanwendungen und haben direkten Zugriff auf das Betriebssystem. Weiterhin sind Entwickelnde von Webanwendungen an den kleinsten gemeinsamen Nenner des von der Zielgruppe genutzten Webbrowsers gebunden, ohne der Zielgruppe einen anderen Webbrowser aufzwingen zu wollen. Als Beispiel seien hier erneut die Push Mitteilungen von Webbrowsern aufgeführt, welche von vielen, aber nicht allen, Browsern unterstützt werden. Über native Entwicklung, beziehungsweise Cross-Plattform-Entwicklung, sind Entwickelnde lediglich durch die Wahl der Pakete und deren Unterstützungen für die Plattformen eingeschränkt. Die User Experience wird durch die geteilte Code-Basis möglichst gleich über die Plattformen hinweg gestaltet. \\
+An dieser Stelle sei erneut die Wahl von Cross-Plattform-Anwendungen anstelle von nativen Anwendungen erwähnt. Durch rein native Entwicklung für eine Plattform sind Entwickelnde unflexibel. Ein plötzlicher Wechsel der Zielplattform durch die Zielgruppe kann konkurrierender Software ungewollt zu mehr Nutzenden verhelfen. Die parallele Entwicklung von nativen Anwendungen für zwei oder mehr verschiedene Zielplattformen kann ungewollt zu einer ambivalenten User Experience zwischen den Plattformen führen. Als Folge dessen sollte die Wahl, wenn möglich, auf eine Cross-Plattform-Lösung fallen. Auf diese Weise sind Entwickelnde flexibel gegenüber einem potenziellen Exodus einer Plattform. Weiterhin nutzen zwei der in dieser Arbeit erwähnten Frameworks JavaScript, wodurch der Übergang von Webanwendungen zur Entwicklung von nativen Anwendungen mit besagten Frameworks angenehmer ist. \\
+
+Zusammenfassend lässt sich sagen, dass eine Migration von Webanwendungen zu nativen Anwendungen zwar mit Aufwand, doch mit wenigen Risiken zu bewerten ist, sollte die Zielgruppe ausreichend analysiert und die Zielplattform korrekt bestimmt worden sein. Der Aufwand spiegelt sich beispielsweise im Testen der Anwendungen wieder, während sich die Risiken beispielsweise auf eine ausbleibende Akzeptanz der nativen Anwendungen durch die Zielgruppe beschränken. Sollte die Teamgröße eine parallele Entwicklung von Webanwendungen und nativen Anwendungen erlauben, können diese Risiken weiterhin minimiert werden. \\
+Die Chancen einer Migration lassen sich als Kombination der Vorteile nativer Anwendungen gegenüber Webanwendungen und einer potenziell wachsenden Zielgruppe zusammenfassen. Vorteile, wie erhöhte Performanz, direkter Zugriff auf das Betriebssystem und Offline-Verfügbarkeit sind nur ein kleiner Ausblick auf den Gewinn, den eine Migration mit sich bringen kann. 
 
 % ---------------------
 % Literaturverzeichnis:
@@ -1010,7 +1076,7 @@ Kiel, den 16.05.2022 \\ \\
 			\hline
 		\end{tabular}
 	\end{center}
-	Die Tabelle zeigt die Anzahl aller Antworten pro Jahr der \textit{stackoverflow Developer Survey}, sowie den relativen Anteil von Full-Stack Developern an diesen Antworten \autocite{stackoverflow_2015,stackoverflow_2016,stackoverflow_2017,stackoverflow_2018,stackoverflow_2019,stackoverflow_2020,stackoverflow_2021}.
+	Die Tabelle zeigt die Anzahl aller Antworten pro Jahr der stackoverflow Developer Survey, sowie den relativen Anteil von Full-Stack Developern an diesen Antworten \autocite{stackoverflow_2015,stackoverflow_2016,stackoverflow_2017,stackoverflow_2018,stackoverflow_2019,stackoverflow_2020,stackoverflow_2021}.
 \end{table}
 
 \newpage
@@ -1052,7 +1118,7 @@ Kiel, den 16.05.2022 \\ \\
 
 \begin{table}[H]
 	\centering
-	\caption{Ergebnisse des Tests zur Erfassung der Browser-Responsivität von Safari und Chrome mittels \textit{speedometer}}
+	\caption{Ergebnisse des Tests zur Erfassung der Browser-Responsivität von Safari und Chrome mittels speedometer}
 	\begin{center}
 		\begin{tabularx}{\linewidth}{| l || X | X |}
 			\hline
@@ -1082,7 +1148,7 @@ Kiel, den 16.05.2022 \\ \\
 			\hline
 		\end{tabularx}
 	\end{center}
-	Dies sind die Testergebnisse des Browser-Responsivität, ermittelt mit \textit{speedometer}. Die Angaben sind in der Einheit Durchläufe pro Minute angegeben. Der Test wird insgesamt zehnmal wiederholt und die Mittelwerte werden gebildet.
+	Dies sind die Testergebnisse des Browser-Responsivität, ermittelt mit speedometer. Die Angaben sind in der Einheit Durchläufe pro Minute angegeben. Der Test wird insgesamt zehnmal wiederholt und die Mittelwerte werden gebildet.
 \end{table}
 
 \newpage
@@ -1126,8 +1192,8 @@ Kiel, den 16.05.2022 \\ \\
 
 \newpage
 
-\subsubsection*{Anhang 2.2: Verschiedene Status der Batterien auf Android und iOS}
-\addcontentsline{toc}{subsubsection}{Anhang 2.2: Verschiedene Status der Batterien auf Android und iOS}
+\subsubsection*{Anhang 2.2: React Native: Verschiedene Status der Batterien auf Android und iOS}
+\addcontentsline{toc}{subsubsection}{Anhang 2.2: React Native: Verschiedene Status der Batterien auf Android und iOS}
 
 \begin{figure}[H]
 	\centering
@@ -1145,8 +1211,8 @@ Kiel, den 16.05.2022 \\ \\
 
 \newpage
 
-\subsubsection*{Anhang 2.3: Push Mitteilungen auf einer physischen iOS-Plattform und einer simuliertem Android-Plattform}
-\addcontentsline{toc}{subsubsection}{Anhang 2.3: Push Mitteilungen auf einer physischen iOS-Plattform und einer simuliertem Android-Plattform}
+\subsubsection*{Anhang 2.3: React Native: Push Mitteilungen auf einer physischen iOS-Plattform und einer simuliertem Android-Plattform }
+\addcontentsline{toc}{subsubsection}{Anhang 2.3: React Native: Push Mitteilungen auf einer physischen iOS-Plattform und einer simuliertem Android-Plattform}
 
 \begin{figure}[H]
 	\centering
@@ -1164,7 +1230,7 @@ Kiel, den 16.05.2022 \\ \\
 
 \newpage
 
-\subsubsection*{Anhang 2.4: MacOS Erkennung der externen Stromversorgung}
+\subsubsection*{Anhang 2.4: Electron: MacOS Erkennung der externen Stromversorgung}
 \addcontentsline{toc}{subsubsection}{Anhang 2.4: MacOS Erkennung der externen Stromversorgung}
 
 \begin{figure}[H]
@@ -1212,11 +1278,17 @@ Kiel, den 16.05.2022 \\ \\
 	Der Batterie-Status wird nicht korrekt ausgelesen und der Gyroskop-Sensor zeigt aufgrund fehlender Hardware falsche Ergebnisse an.
 \end{figure}
 
-
 \begin{figure}[H]
 	\centering
 	\caption{Flutter Anwendung auf iOS}
 	\includegraphics[scale=0.35]{_assets/iOS_Flutter.png} \\
+	Die angesprochenen Sensoren liefern korrekte Ergebnisse.
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Flutter Anwendung auf Android}
+	\includegraphics[scale=0.35]{_assets/Android_Flutter.png} \\
 	Die angesprochenen Sensoren liefern korrekte Ergebnisse.
 \end{figure}
 
